@@ -1,0 +1,19 @@
+{
+  "name": "bitwisdom",
+  "version": "1.0.0",
+  "description": "MERN Stack application with AWS deployment",
+  "scripts": {
+    "install-all": "cd server && npm install && cd ../client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build:client": "cd client && npm run build",
+    "start:server": "cd server && npm start"
+  },
+  "keywords": ["mern", "react", "express", "mongodb", "tailwind", "aws"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
