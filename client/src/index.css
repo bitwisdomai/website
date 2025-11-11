@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'BlengerTech';
+  src: url('./assets/font/BlengerTechRegular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme {
   --color-brand-primary: #00ecff;
   --color-brand-secondary: #0080fa;
+  --font-heading: 'BlengerTech', sans-serif;
+}
+
+/* Apply heading font to all heading elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading) !important;
 }

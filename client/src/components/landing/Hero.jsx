@@ -2,16 +2,16 @@ import React from 'react'
 
 const Hero = () => {
   return (
-    <div className="relative bg-gradient-to-br from-blue-950 via-gray-900 to-black text-white">
+    <div className="relative bg-[#212121] text-white">
       {/* Navigation Bar */}
       <div className="flex justify-between items-center px-28 py-4 border-b border-gray-800">
-        <div className="flex gap-8 text-sm">
+        {/* <div className="flex gap-8 text-sm"> */}
           <a href="#home" className="hover:text-brand-primary transition cursor-pointer">Home</a>
           <a href="#about" className="hover:text-brand-primary transition cursor-pointer">About</a>
           <a href="#products" className="hover:text-brand-primary transition cursor-pointer">Our Products</a>
           <a href="#qualify" className="hover:text-brand-primary transition cursor-pointer">Qualify For Customers</a>
           <a href="#contact" className="hover:text-brand-primary transition cursor-pointer">Contact Us</a>
-        </div>
+        {/* </div> */}
         <div className="flex gap-4">
           <button className="border border-gray-600 px-5 py-2 rounded text-sm hover:bg-gray-800 transition">
             Product Details
@@ -32,7 +32,7 @@ const Hero = () => {
         {/* Left Content */}
         <div className="relative z-10 max-w-2xl">
           <h1 className="text-5xl font-bold mb-4 leading-tight">
-            "Bitwisdom AI Network™
+            "Bitwisdom AI Network TM"
           </h1>
           <p className="text-3xl mb-6 italic">
             Featuring AI Technology - <br />
