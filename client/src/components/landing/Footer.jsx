@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/Logo/BitWisdom_Secondary_Logomark_Registered.png";
-import phoneImg from "../../assets/footerback.jpg";
+import phoneImg from "../../assets/footerback.png";
 import {
   FaFacebookF,
   FaInstagram,

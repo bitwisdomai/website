@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "blog": "Blog",
+    "products": "Unsere Produkte",
+    "qualifying": "Qualifizierende BW-Kunden",
+    "contact": "Kontakt",
+    "waitlist": "Produkt-Warteliste",
+    "joinNetwork": "Unserem Netzwerk Beitreten"
+  },
+  "hero": {
+    "aboutTitle": "Über BitWisdom AI Network",
+    "aboutSubtitle": "Die Zukunft von Kryptowährungstransaktionen mit modernster Technologie und unerschütterlichem Engagement innovieren",
+    "blogTitle": "Entdecken Sie Unsere Einblicke",
+    "blogSubtitle": "Bleiben Sie auf dem Laufenden mit den neuesten Trends, Nachrichten und Einblicken vom BitWisdom AI Network",
+    "contactTitle": "Kontaktieren Sie Uns",
+    "contactSubtitle": "Haben Sie Fragen zum Beitritt zu unserem Netzwerk? Wir helfen Ihnen, Kryptowährungstransaktionen zu revolutionieren",
+    "qualifyingTitle": "Qualifizierende BitWisdom AI Network Kunden",
+    "qualifyingSubtitle": "Treten Sie unserem exklusiven Netzwerk zukunftsorientierter Organisationen und Unternehmer bei, die Kryptowährungstransaktionen revolutionieren"
+  },
+  "footer": {
+    "copyright": "© 2024 BitWisdom AI Network. Alle Rechte vorbehalten."
+  },
+  "common": {
+    "readMore": "Mehr Lesen",
+    "learnMore": "Mehr Erfahren",
+    "getStarted": "Loslegen",
+    "contactUs": "Kontakt"
+  }
+}

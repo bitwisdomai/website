@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "blog": "Blog",
+    "products": "Nossos Produtos",
+    "qualifying": "Clientes Qualificados BW",
+    "contact": "Contato",
+    "waitlist": "Lista de Espera de Produtos",
+    "joinNetwork": "Junte-se à Nossa Rede"
+  },
+  "hero": {
+    "aboutTitle": "Sobre BitWisdom AI Network",
+    "aboutSubtitle": "Inovando o futuro das transações de criptomoeda com tecnologia de ponta e dedicação inabalável",
+    "blogTitle": "Descubra Nossos Insights",
+    "blogSubtitle": "Mantenha-se atualizado com as últimas tendências, notícias e insights da BitWisdom AI Network",
+    "contactTitle": "Entre em Contato",
+    "contactSubtitle": "Tem dúvidas sobre ingressar em nossa rede? Estamos aqui para ajudá-lo a revolucionar as transações de criptomoeda",
+    "qualifyingTitle": "Clientes Qualificados BitWisdom AI Network",
+    "qualifyingSubtitle": "Junte-se à nossa rede exclusiva de organizações e empreendedores com visão de futuro revolucionando as transações de criptomoeda"
+  },
+  "footer": {
+    "copyright": "© 2024 BitWisdom AI Network. Todos os direitos reservados."
+  },
+  "common": {
+    "readMore": "Leia Mais",
+    "learnMore": "Saiba Mais",
+    "getStarted": "Começar",
+    "contactUs": "Contato"
+  }
+}

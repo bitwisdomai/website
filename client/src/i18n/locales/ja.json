@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "about": "私たちについて",
+    "blog": "ブログ",
+    "products": "製品",
+    "qualifying": "適格なBW顧客",
+    "contact": "お問い合わせ",
+    "waitlist": "製品待機リスト",
+    "joinNetwork": "ネットワークに参加"
+  },
+  "hero": {
+    "aboutTitle": "BitWisdom AIネットワークについて",
+    "aboutSubtitle": "最先端の技術と揺るぎない献身で暗号通貨取引の未来を革新",
+    "blogTitle": "インサイトを発見",
+    "blogSubtitle": "BitWisdom AIネットワークの最新トレンド、ニュース、洞察を入手",
+    "contactTitle": "お問い合わせ",
+    "contactSubtitle": "ネットワークへの参加についてご質問はありますか？暗号通貨取引の革新をお手伝いします",
+    "qualifyingTitle": "BitWisdom AIネットワーク適格顧客",
+    "qualifyingSubtitle": "暗号通貨取引を革新する先進的な組織と起業家の独占ネットワークに参加"
+  },
+  "footer": {
+    "copyright": "© 2024 BitWisdom AIネットワーク。全著作権所有。"
+  },
+  "common": {
+    "readMore": "続きを読む",
+    "learnMore": "もっと学ぶ",
+    "getStarted": "始める",
+    "contactUs": "お問い合わせ"
+  }
+}

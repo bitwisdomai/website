@@ -24,21 +24,25 @@ const ContactHero = () => {
       {/* Content */}
       <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-28 py-12 sm:py-16 md:py-20 lg:py-24 text-center">
         <h1
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-cyan-300 px-2"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 
+             bg-gradient-to-r from-[#5DE8FF] via-[#FFFFFF] to-[#5DE8FF] 
+             bg-clip-text text-transparent px-2"
           style={{
             fontFamily: "'Orbitron', sans-serif",
-            animation: "fadeInUp 1s ease-out"
+            animation: "fadeInUp 1s ease-out",
           }}
         >
           Get in Touch
         </h1>
+
         <p
           className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed px-2"
           style={{
-            animation: "fadeInUp 1s ease-out 0.3s both"
+            animation: "fadeInUp 1s ease-out 0.3s both",
           }}
         >
-          Have questions about joining our network? We're here to help you revolutionize cryptocurrency transactions
+          Have questions about joining our network? We're here to help you
+          revolutionize cryptocurrency transactions
         </p>
       </div>
 

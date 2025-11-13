@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "blog": "博客",
+    "products": "我们的产品",
+    "qualifying": "合格的BW客户",
+    "contact": "联系我们",
+    "waitlist": "产品等候名单",
+    "joinNetwork": "加入我们的网络"
+  },
+  "hero": {
+    "aboutTitle": "关于BitWisdom AI网络",
+    "aboutSubtitle": "以尖端技术和坚定不移的奉献精神创新加密货币交易的未来",
+    "blogTitle": "发现我们的见解",
+    "blogSubtitle": "了解BitWisdom AI网络的最新趋势、新闻和见解",
+    "contactTitle": "联系我们",
+    "contactSubtitle": "对加入我们的网络有疑问吗？我们在这里帮助您革新加密货币交易",
+    "qualifyingTitle": "BitWisdom AI网络合格客户",
+    "qualifyingSubtitle": "加入我们独家的前瞻性组织和企业家网络，革新加密货币交易"
+  },
+  "footer": {
+    "copyright": "© 2024 BitWisdom AI网络。版权所有。"
+  },
+  "common": {
+    "readMore": "阅读更多",
+    "learnMore": "了解更多",
+    "getStarted": "开始",
+    "contactUs": "联系我们"
+  }
+}

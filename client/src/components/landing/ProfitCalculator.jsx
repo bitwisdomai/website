@@ -2,37 +2,50 @@ import React, { useState, useEffect } from "react";
 
 const ProfitCalculator = () => {
   const [monthlyTransactions, setMonthlyTransactions] = useState(50000);
+  const [profitPercentage, setProfitPercentage] = useState(1.25);
   const [profitShare, setProfitShare] = useState(50);
   const [monthlyProfit, setMonthlyProfit] = useState(0);
   const [annualProfit, setAnnualProfit] = useState(0);
   const [monthlySavings, setMonthlySavings] = useState(0);
 
-  // Fee calculation thresholds
-  const USA_THRESHOLDS = [
-    16000, 32000, 48000, 64000, 80000, 96000, 112000, 128000, 144000, 160000,
-  ];
-  const USA_FEES = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+  const calculateUSAFee = (totalAmount) => {
+    // Calculate the tier based on $16,000 increments
+    // Tier 1: $0-$16,000 = $100
+    // Tier 2: $16,001-$32,000 = $200
+    // Tier 3: $32,001-$48,000 = $300
+    // ... up to Tier 10 and beyond: $160,000+ = $1,000 (capped)
+    const tier = Math.ceil(totalAmount / 16000);
+    const fee = Math.min(tier * 100, 1000);
 
-  const calculateUSAProfit = (totalAmount) => {
-    const percentageProfit = totalAmount * 0.0125; // 1.25% profit margin
-    let fee = 100;
+    return fee;
+  };
 
-    for (let i = 0; i < USA_THRESHOLDS.length; i++) {
-      if (totalAmount >= USA_THRESHOLDS[i]) {
-        fee = USA_FEES[i];
-      } else {
-        break;
-      }
-    }
+  const calculateUSAProfit = (totalAmount, percentage) => {
+    // Calculate gross profit based on configurable percentage
+    const grossProfit = totalAmount * (percentage / 100);
 
-    const netProfit = percentageProfit - fee;
+    // Calculate the tiered fee
+    const fee = calculateUSAFee(totalAmount);
+
+    // Net profit is gross profit minus the fee
+    const netProfit = grossProfit - fee;
+
+    // Return 0 if net profit is negative (shouldn't happen with proper amounts)
     return netProfit > 0 ? netProfit : 0;
   };
 
   const calculateProfit = () => {
-    const totalProfit = calculateUSAProfit(monthlyTransactions);
-    const nodeOwnerProfit = totalProfit * (profitShare / 100);
-    const merchantSavings = totalProfit * ((100 - profitShare) / 100);
+    // Convert empty strings to 0 for calculations
+    const transactions = Number(monthlyTransactions) || 0;
+    const percentage = Number(profitPercentage) || 0;
+    const share = Number(profitShare) || 0;
+
+    // Calculate total net profit after fees
+    const totalNetProfit = calculateUSAProfit(transactions, percentage);
+
+    // Split profit based on profit share percentage
+    const nodeOwnerProfit = totalNetProfit * (share / 100);
+    const merchantSavings = totalNetProfit * ((100 - share) / 100);
 
     setMonthlyProfit(nodeOwnerProfit);
     setAnnualProfit(nodeOwnerProfit * 12);
@@ -41,10 +54,11 @@ const ProfitCalculator = () => {
 
   useEffect(() => {
     calculateProfit();
-  }, [monthlyTransactions, profitShare]);
+  }, [monthlyTransactions, profitPercentage, profitShare]);
 
   const resetToDefaults = () => {
     setMonthlyTransactions(50000);
+    setProfitPercentage(1.25);
     setProfitShare(50);
   };
 
@@ -86,9 +100,35 @@ const ProfitCalculator = () => {
               <input
                 type="number"
                 value={monthlyTransactions}
-                onChange={(e) => setMonthlyTransactions(Number(e.target.value))}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setMonthlyTransactions(value === "" ? "" : Number(value));
+                }}
+                onFocus={(e) => e.target.select()}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-400"
               />
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-gray-800 text-sm font-semibold mb-2">
+                Profit Percentage (%)
+              </label>
+              <input
+                type="number"
+                min="0"
+                max="100"
+                step="0.01"
+                value={profitPercentage}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setProfitPercentage(value === "" ? "" : Number(value));
+                }}
+                onFocus={(e) => e.target.select()}
+                className="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              />
+              <p className="text-gray-500 text-xs mt-1">
+                The percentage of the total transaction amount used to calculate gross profit (default 1.25%).
+              </p>
             </div>
 
             <div className="mb-6">
@@ -100,7 +140,11 @@ const ProfitCalculator = () => {
                 min="0"
                 max="100"
                 value={profitShare}
-                onChange={(e) => setProfitShare(Number(e.target.value))}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setProfitShare(value === "" ? "" : Number(value));
+                }}
+                onFocus={(e) => e.target.select()}
                 className="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-400"
               />
               <p className="text-gray-500 text-xs mt-1">
