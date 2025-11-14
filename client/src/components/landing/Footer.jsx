@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/Logo/BitWisdom_Secondary_Logomark_Registered.png";
 import phoneImg from "../../assets/footerback.png";
 import {
@@ -31,6 +32,7 @@ const Footer = () => {
               src={logo}
               alt="BitWisdom Logo"
               className="h-12 sm:h-14 md:h-16 mb-3 sm:mb-4 object-contain"
+              loading="lazy"
             />
             <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-xs mb-4 sm:mb-5 md:mb-6">
               BitWisdom AI Network has built and continues to build the future
@@ -55,14 +57,22 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1.5 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
               <li>
-                <a href="#" className="hover:text-cyan-400 transition">
+                <Link
+                  to="/"
+                  className="hover:text-cyan-400 transition"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-cyan-400 transition">
+                <Link
+                  to="/about"
+                  className="hover:text-cyan-400 transition"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   About
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-cyan-400 transition">
@@ -70,14 +80,22 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-cyan-400 transition">
+                <Link
+                  to="/qualifying"
+                  className="hover:text-cyan-400 transition"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   Qualifying BW Customers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-cyan-400 transition">
+                <Link
+                  to="/contact"
+                  className="hover:text-cyan-400 transition"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -127,12 +145,26 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1.5 sm:space-y-2 text-gray-300 text-xs sm:text-sm">
               <li>
-                <a
-                  href="#"
-                  className="hover:text-cyan-400 transition font-semibold"
+                <Link
+                  to="/#mobile-node"
+                  className="hover:text-cyan-400 transition"
+                  onClick={(e) => {
+                    const section = document.getElementById('mobile-node-section');
+
+                    // If already on HomePage and section exists
+                    if (window.location.pathname === '/' && section) {
+                      e.preventDefault();
+                      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                      // Navigate to HomePage and scroll after load
+                      e.preventDefault();
+                      window.location.href = '/#mobile-node';
+                      // The scroll will be handled by useEffect in HomePage
+                    }
+                  }}
                 >
                   Mobile Phone Crypto Node
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-cyan-400 transition">

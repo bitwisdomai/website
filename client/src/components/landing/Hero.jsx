@@ -36,7 +36,7 @@ const Hero = () => {
   }, [carouselTexts.length]);
 
   return (
-    <div className="relative bg-[#212121] text-white overflow-hidden">
+    <div className="relative bg-[#212121] text-white overflow-hidden min-h-screen">
       {/* Background Video */}
       <video
         autoPlay
@@ -57,7 +57,7 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-black/80 z-20 md:hidden"></div>
 
       {/* Hero Content */}
-      <div className="relative px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 py-10 sm:py-14 md:py-20 lg:py-28 flex items-center min-h-[500px] sm:min-h-[550px] md:min-h-[650px] lg:min-h-[750px] z-10">
+      <div className="relative px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 py-10 sm:py-14 md:py-20 lg:py-28 flex items-center min-h-screen z-10">
         {/* Background Gradient Overlay */}
         <div className="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-20 md:opacity-30">
           <div className="w-full h-full bg-gradient-to-l from-brand-primary/20 to-transparent"></div>

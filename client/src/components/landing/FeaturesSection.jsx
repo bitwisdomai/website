@@ -13,9 +13,22 @@ const FeatureCard = ({ number, title, description }) => (
       <h3 className="text-white text-lg sm:text-xl font-semibold mb-2 sm:mb-3 tracking-wide">
         {title}
       </h3>
-      <p className="text-gray-300 leading-relaxed text-sm sm:text-[15px]">
-        {description}
-      </p>
+      {Array.isArray(description) ? (
+        <div className="space-y-3 sm:space-y-4">
+          {description.map((para, index) => (
+            <p
+              key={index}
+              className="text-gray-300 leading-relaxed text-sm sm:text-[15px]"
+            >
+              {para}
+            </p>
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-300 leading-relaxed text-sm sm:text-[15px]">
+          {description}
+        </p>
+      )}
     </div>
   </div>
 );
@@ -109,8 +122,10 @@ const FeaturesSection = () => {
     {
       number: "01",
       title: "Deploy Anywhere",
-      description:
-        "We will help you launch a crypto node in the cloud, or your own locally-hosted hardware, including our MOBILE PHONE CRYPTO NODE (patent-pending), by using BitWisdom’s patent-pending Clearnet security connection procedures and no commitment, ever! With the exception of lifetime license to only one business in USA and only one business in any other country, limited-time offer.",
+      description: [
+        "We will help you launch a crypto node in the cloud, or your own locally-hosted hardware, including our MOBILE PHONE CRYPTO NODE (patent-pending), by using BitWisdom’s patent-pending Clearnet security connection procedures and no commitment, ever!",
+        "** With the exception of lifetime license to only one business in USA and only one business in any other country, limited-time offer.",
+      ],
     },
     {
       number: "02",
