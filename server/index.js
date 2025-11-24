@@ -17,13 +17,32 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Import routes
+import authRoutes from './routes/auth.js';
+import pageRoutes from './routes/pages.js';
+import templateRoutes from './routes/templates.js';
+import seoRoutes from './routes/seo.js';
+
 // Basic route
 app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the API' });
+  res.json({
+    success: true,
+    message: 'Welcome to BitWisdom CMS API',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      pages: '/api/pages',
+      templates: '/api/templates',
+      seo: '/api/seo'
+    }
+  });
 });
 
-// Import routes here
-// app.use('/api/users', userRoutes);
+// API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/pages', pageRoutes);
+app.use('/api/templates', templateRoutes);
+app.use('/api/seo', seoRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
