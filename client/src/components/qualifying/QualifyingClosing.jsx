@@ -44,7 +44,7 @@ const QualifyingClosing = () => {
           </div>
 
           <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed mb-4">
-            As a <span className="text-cyan-400 font-semibold">KYC-vetted</span> membership organization, tech/servicing company, membership organization, institution, government entity/municipality, nonprofit organization or forward-thinking entrepreneur who is already serving a network of merchants who are their customers, you can{" "}
+            As a <span className="text-cyan-400 font-semibold">KYC-vetted</span> membership organization, tech/servicing company, institution, government entity/municipality, nonprofit organization, franchisor, corporate office/store support center, or forward-thinking entrepreneur who is already serving a network of merchants who are their customers, you can{" "}
             <span className="text-cyan-400 font-semibold">share in the success</span> of your merchants and others transacting privately in cryptocurrency, while also keeping their merchant transaction processing fees{" "}
             <span className="text-cyan-400 font-semibold">significantly lower than the competition</span>.
           </p>

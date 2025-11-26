@@ -1,4 +1,5 @@
 import React from "react";
+import ProtectedEmail from "../common/ProtectedEmail";
 
 const TermsContent = () => {
   const sections = [
@@ -13,7 +14,7 @@ const TermsContent = () => {
       subsections: [
         {
           subtitle: "BitWisdom Ai Network",
-          content: "Refers to BitWisdom Ai Network, Inc., the company providing the Software and Services."
+          content: "Refers to BitWisdom Ai Network, the company providing the Software and Services."
         },
         {
           subtitle: "Software",
@@ -48,7 +49,7 @@ const TermsContent = () => {
     {
       title: "4. USER REGISTRATION AND ACCOUNT SECURITY",
       content: [
-        "To access and use the Software, you may be required to create an account and provide certain information, including personal, business, and financial data, as outlined in our Privacy Policy and AML/KYC Policy. You agree to provide accurate and complete information and to update it as necessary.",
+        "To access and use the Software, you may be required to provide certain information, including personal, business, and financial data, as outlined in our Privacy Policy and AML/KYC Policy. You agree to provide accurate and complete information and to update it as necessary.",
         "You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.",
         "You must immediately notify BitWisdom Ai Network if you suspect any unauthorized access or activity related to your account."
       ],
@@ -75,7 +76,7 @@ const TermsContent = () => {
         },
         {
           subtitle: "6.2. License Fees",
-          content: "Licensees are responsible for paying tiered licensing fees to BitWisdom Ai Network, as described in the Licensing Agreement section of this Agreement. These fees will be deducted from the residuals earned by Licensees from the transactions facilitated through the Software.\n\nThe minimum monthly licensing fee is $100 USD in Bitcoin Satoshi or the equivalent amount in cryptocurrency at the commencement date (11/24/2025).\n\nThe licensing fee will increase in $100 USD increments or Bitcoin Satoshi equivalent at the commencement date (11/24/2025), depending on the total transaction volume processed by Licensees' Merchants.\n\nThe maximum monthly licensing fee is $1,000 USD or Bitcoin Satoshi equivalent at the commencement date (11/24/2025), which will never exceed this threshold, regardless of total transaction volume.\n\nFees will be deducted from the Licensee's residual payments at a rate of 50% of the residuals until the total monthly licensing fee is paid."
+          content: "Licensees are responsible for paying tiered licensing fees to BitWisdom Ai Network, as described in the Licensing Agreement section of this Agreement. These fees will be deducted from the residuals earned by Licensees from the transactions facilitated through the Software.\n\nThe minimum monthly licensing fee is $100 USD in Bitcoin Satoshi or the equivalent amount in cryptocurrency at the commencement date (11/24/2025).\n\nThe licensing fee will increase in $100 USD increments in Bitcoin Satoshi equivalent at the commencement date (11/24/2025), depending on the total transaction volume processed by Licensees' Merchants.\n\nThe maximum monthly licensing fee is $1,000 USD in Bitcoin Satoshi equivalent at the commencement date (11/24/2025), which will never exceed this threshold, regardless of total transaction volume.\n\nFees will be deducted from the Licensee's residual payments at a rate of 50% of the residuals until the total monthly licensing fee is paid."
         },
         {
           subtitle: "6.3. Transaction Fees",
@@ -148,9 +149,9 @@ const TermsContent = () => {
       title: "14. CONTACT US",
       content: [
         "If you have any questions or concerns about these Terms of Service, please contact us at:",
-        "BitWisdom Ai Network",
-        "Email: info@bitwisdom.ai"
+        "BitWisdom Ai Network"
       ],
+      email: { user: "info", domain: "bitwisdom.ai" }
     },
   ];
 
@@ -204,14 +205,21 @@ const TermsContent = () => {
                     </div>
                   ))
                 ) : (
-                  section.content.map((paragraph, pIndex) => (
-                    <p
-                      key={pIndex}
-                      className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed whitespace-pre-line"
-                    >
-                      {paragraph}
-                    </p>
-                  ))
+                  <>
+                    {section.content.map((paragraph, pIndex) => (
+                      <p
+                        key={pIndex}
+                        className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed whitespace-pre-line"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                    {section.email && (
+                      <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
+                        Email: <ProtectedEmail user={section.email.user} domain={section.email.domain} />
+                      </p>
+                    )}
+                  </>
                 )}
               </div>
             </div>

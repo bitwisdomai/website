@@ -161,11 +161,13 @@ const MobileNodeSection = () => {
           <div className="order-1 md:order-2 space-y-6 text-center md:text-left">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
               <span className="bg-gradient-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
-                Introducing the Mobile Phone Crypto Node
+                Introducing the nodeFON - Mobile Phone Crypto Node
               </span>
               <span className="block text-cyan-300 text-xs sm:text-sm md:text-base font-light mt-1">
                 (Patent-Pending)
               </span>
+
+              
             </h2>
 
             {/* Main Pointers */}

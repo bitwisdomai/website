@@ -1,8 +1,9 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import NavBar from "../components/landing/NavBar";
 import Footer from "../components/landing/Footer";
 import Banner from "../components/landing/Banner";
 import ParticlesBackground from "../components/common/ParticlesBackground";
+import EbayStoreSection from "../components/products/EbayStoreSection";
 import phoneImg from "../assets/bwphone.png";
 import cardMachineImg from "../assets/cardmachine.png";
 import nodeMobileImg from "../assets/nodemobile.png";
@@ -11,6 +12,19 @@ import bitbackVideo from "../assets/bitbackvideo.mp4";
 import bitbackPoster from "../assets/bitback.jpg";
 
 const ProductsPage = () => {
+  // Handle scroll to section when coming from another page with hash
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#product-waitlist') {
+      setTimeout(() => {
+        const section = document.getElementById('product-waitlist');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 300); // Wait for page to render
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-black">
       <Banner />
@@ -382,6 +396,9 @@ const ProductsPage = () => {
           </div>
         </div>
       </section>
+
+      {/* eBay Store Section */}
+      <EbayStoreSection />
 
       {/* CTA Section */}
       <section className="relative bg-black py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden">

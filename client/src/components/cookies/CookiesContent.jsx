@@ -1,4 +1,5 @@
 import React from "react";
+import ProtectedEmail from "../common/ProtectedEmail";
 
 const CookiesContent = () => {
   const sections = [
@@ -83,9 +84,9 @@ const CookiesContent = () => {
       title: "7. CONTACT US",
       content: [
         "If you have any questions or concerns about this Cookie Policy or how we handle your data, please contact us at:",
-        "BitWisdom Ai Network",
-        "Email: info@bitwisdom.ai"
-      ]
+        "BitWisdom Ai Network"
+      ],
+      email: { user: "info", domain: "bitwisdom.ai" }
     },
     {
       title: "8. ADDITIONAL INFORMATION",
@@ -138,6 +139,11 @@ const CookiesContent = () => {
                     {paragraph}
                   </p>
                 ))}
+                {section.email && (
+                  <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
+                    Email: <ProtectedEmail user={section.email.user} domain={section.email.domain} />
+                  </p>
+                )}
                 {section.subsections && section.subsections.map((subsection, sIndex) => (
                   <div key={sIndex} className="pl-2 sm:pl-3 md:pl-4 mt-3 sm:mt-4">
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold text-cyan-300 mb-2 sm:mb-3">

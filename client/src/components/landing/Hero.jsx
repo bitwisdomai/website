@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import bitwisdomBanner from "../../assets/newbannerhero.webm";
+import bitwisdomBanner from "../../assets/newban.mp4";
 import BLogo from "../../assets/Logo/Blogo.png";
 
 const Hero = () => {
@@ -131,9 +131,6 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
             <button className="bg-brand-primary text-black px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded text-xs sm:text-sm md:text-base font-semibold hover:bg-cyan-400 transition w-full sm:w-auto">
               Schedule A Callback
-            </button>
-            <button className="border border-brand-primary text-white px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 rounded text-xs sm:text-sm md:text-base font-semibold hover:bg-brand-primary/10 transition w-full sm:w-auto">
-              Help Fund Developing Country Businesses
             </button>
           </div>
         </div>

@@ -1,12 +1,15 @@
 import React from "react";
 import { FaEnvelope, FaGlobe, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import ProtectedEmail from "../common/ProtectedEmail";
 
 const ContactInfo = () => {
   const contactDetails = [
     {
       icon: FaEnvelope,
       title: "Email Us",
-      content: "info@bitwisdom.ai",
+      isEmail: true,
+      emailUser: "info",
+      emailDomain: "bitwisdom.ai",
       subContent: "We'll respond within 24 hours",
     },
     {
@@ -68,9 +71,13 @@ const ContactInfo = () => {
                 <h3 className="text-white text-base sm:text-lg font-semibold mb-2 group-hover:text-cyan-300 transition-colors duration-300">
                   {detail.title}
                 </h3>
-                <p className="text-cyan-400 font-medium mb-1 text-sm sm:text-base">
-                  {detail.content}
-                </p>
+                <div className="text-cyan-400 font-medium mb-1 text-sm sm:text-base">
+                  {detail.isEmail ? (
+                    <ProtectedEmail user={detail.emailUser} domain={detail.emailDomain} />
+                  ) : (
+                    <p>{detail.content}</p>
+                  )}
+                </div>
                 <p className="text-gray-500 text-xs sm:text-sm">
                   {detail.subContent}
                 </p>
