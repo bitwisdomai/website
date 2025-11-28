@@ -15,11 +15,11 @@ const ProductsPage = () => {
   // Handle scroll to section when coming from another page with hash
   useEffect(() => {
     const hash = window.location.hash;
-    if (hash === '#product-waitlist') {
+    if (hash === '#waitlist-buttons') {
       setTimeout(() => {
-        const section = document.getElementById('product-waitlist');
+        const section = document.getElementById('waitlist-buttons');
         if (section) {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          section.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       }, 300); // Wait for page to render
     }

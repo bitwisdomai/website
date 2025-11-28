@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import QualifyingForm from "../qualifying/QualifyingForm";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showQualifyingForm, setShowQualifyingForm] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -15,15 +17,21 @@ const Navbar = () => {
     setIsMenuOpen(false); // Close mobile menu if open
 
     if (location.pathname === "/products") {
-      // If already on products page, just scroll to the section
-      const section = document.getElementById("product-waitlist");
+      // If already on products page, just scroll to the waitlist buttons section
+      const section = document.getElementById("waitlist-buttons");
       if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
+        section.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     } else {
       // Navigate to products page with hash
-      navigate("/products#product-waitlist");
+      navigate("/products#waitlist-buttons");
     }
+  };
+
+  // Handler for Join Our Network button
+  const handleJoinNetwork = () => {
+    setIsMenuOpen(false); // Close mobile menu if open
+    setShowQualifyingForm(true); // Open qualifying form
   };
 
   return (
@@ -90,7 +98,10 @@ const Navbar = () => {
             >
               Product Waitlist
             </button>
-            <button className="bg-cyan-400 text-black px-5 py-2 rounded text-sm font-semibold hover:bg-cyan-300 transition">
+            <button
+              onClick={handleJoinNetwork}
+              className="bg-cyan-400 text-black px-5 py-2 rounded text-sm font-semibold hover:bg-cyan-300 transition"
+            >
               Join Our Network
             </button>
           </div>
@@ -172,11 +183,19 @@ const Navbar = () => {
             >
               Product Waitlist
             </button>
-            <button className="w-full bg-cyan-400 text-black px-5 py-2 rounded text-sm font-semibold hover:bg-cyan-300 transition">
+            <button
+              onClick={handleJoinNetwork}
+              className="w-full bg-cyan-400 text-black px-5 py-2 rounded text-sm font-semibold hover:bg-cyan-300 transition"
+            >
               Join Our Network
             </button>
           </div>
         </div>
+      )}
+
+      {/* Qualifying Form Modal */}
+      {showQualifyingForm && (
+        <QualifyingForm onClose={() => setShowQualifyingForm(false)} />
       )}
     </nav>
   );

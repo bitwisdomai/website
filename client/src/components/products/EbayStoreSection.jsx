@@ -212,7 +212,7 @@ const EbayStoreSection = () => {
         </div>
 
         {/* Waitlist Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 md:mt-16">
+        <div id="waitlist-buttons" className="flex flex-col sm:flex-row gap-4 justify-center mt-12 md:mt-16">
           <button
             onClick={() => openWaitlistPopup("Laptop Crypto Node")}
             className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold hover:from-cyan-300 hover:to-blue-400 transition shadow-lg hover:shadow-cyan-400/50 inline-flex items-center justify-center group"

@@ -32,7 +32,7 @@ const CookiesContent = () => {
         {
           subtitle: "2.4. Targeting or Advertising Cookies",
           content:
-            "These cookies are used to deliver content that is more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and help measure the effectiveness of advertising campaigns. These cookies may be set by third-party advertisers or social media platforms when you interact with their content.\n\nExamples: Cookies from advertising networks or social media platforms such as Facebook, Twitter, LinkedIn, or Google Ads.",
+            "These cookies are used to deliver content that is more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and help measure the effectiveness of advertising campaigns. These cookies may be set by third-party advertisers or social media platforms when you interact with their content.\n\nExamples: Cookies from advertising networks or social media platforms such as Facebook/Meta, Twitter/X, LinkedIn, or Google Ads.",
         },
         {
           subtitle: "2.5. Third-Party Cookies",
@@ -58,7 +58,7 @@ const CookiesContent = () => {
         {
           subtitle: "3.3. Opting Out of Third-Party Cookies",
           content:
-            "If you prefer not to have your online activities tracked for advertising purposes, you can opt-out of third-party cookies through the following methods:\n\n• Google Ads: Google Ads Opt-Out\n• Facebook: Facebook Ad Settings\n• Network Advertising Initiative (NAI): NAI Opt-Out",
+            "If you prefer not to have your online activities tracked for advertising purposes, you can opt-out of third-party cookies through the following methods:\n\n• Google Ads: Google Ads Opt-Out\n• Facebook/Meta: Facebook Ad Settings\n• Network Advertising Initiative (NAI): NAI Opt-Out",
         },
       ],
     },
@@ -142,6 +142,7 @@ const CookiesContent = () => {
                   {section.title}
                 </span>
               </h2>
+
               <div className="space-y-3 sm:space-y-4 md:space-y-5">
                 {section.content.map((paragraph, pIndex) => (
                   <p
@@ -151,6 +152,7 @@ const CookiesContent = () => {
                     {paragraph}
                   </p>
                 ))}
+
                 {section.email && (
                   <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
                     Email:{" "}
@@ -160,6 +162,7 @@ const CookiesContent = () => {
                     />
                   </p>
                 )}
+
                 {section.subsections &&
                   section.subsections.map((subsection, sIndex) => (
                     <div
@@ -186,7 +189,7 @@ const CookiesContent = () => {
             animation: "fadeInUp 0.6s ease-out 0.9s both",
           }}
         >
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-cyan-400">
+          <h3 className="text-lg sm:text-xl md:2xl font-bold mb-3 sm:mb-4 text-cyan-400">
             Your Consent
           </h3>
           <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">

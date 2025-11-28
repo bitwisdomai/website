@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import about1Img from "../../assets/about1.jpg";
 import ParticleNetwork from "../about/ParticleNetwork";
+import QualifyingForm from "./QualifyingForm";
 
 const QualifyingClosing = () => {
+  const [showForm, setShowForm] = useState(false);
   return (
     <section className="relative bg-[#0E0E0E] text-white py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
       {/* Background Image */}
@@ -67,7 +69,10 @@ const QualifyingClosing = () => {
           className="mt-10 sm:mt-12 text-center"
           style={{ animation: "fadeInUp 1s ease-out 0.5s both" }}
         >
-          <button className="bg-cyan-400 text-black px-8 sm:px-10 py-3 sm:py-4 rounded text-base sm:text-lg font-semibold hover:bg-cyan-300 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,191,255,0.6)] hover:scale-110 active:scale-95">
+          <button
+            onClick={() => setShowForm(true)}
+            className="bg-cyan-400 text-black px-8 sm:px-10 py-3 sm:py-4 rounded text-base sm:text-lg font-semibold hover:bg-cyan-300 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,191,255,0.6)] hover:scale-110 active:scale-95"
+          >
             Join Our Network Today
           </button>
           <p className="text-gray-400 text-sm mt-4">
@@ -75,6 +80,9 @@ const QualifyingClosing = () => {
           </p>
         </div>
       </div>
+
+      {/* Qualifying Form Modal */}
+      {showForm && <QualifyingForm onClose={() => setShowForm(false)} />}
 
       <style>{`
         @keyframes slideInUp {

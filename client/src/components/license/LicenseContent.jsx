@@ -7,251 +7,311 @@ const LicenseContent = () => {
       subsections: [
         {
           subtitle: "1.1 Software",
-          content: "The software program(s) provided by BitWisdom Ai Network, including but not limited to any updates, upgrades, and related documentation, which is designed to facilitate automated settlement of cryptocurrency transactions and enable residual payments based on transactions processed between merchants and their consumers."
+          content:
+            "The software program(s) provided by BitWisdom Ai Network, including but not limited to, any updates, upgrades, and related documentation, which is designed to facilitate automated settlement of cryptocurrency transactions and enable residual payments based on transactions processed between merchants and their consumers.",
         },
         {
           subtitle: "1.2 Licensee",
-          content: "The entity or individual who has acquired the right to use the Software, typically the customer running a server utilizing BitWisdom Ai Network's software."
+          content:
+            "The entity or individual who has acquired the right to access or use the Software, typically the customer running a server utilizing BitWisdom Ai Network's Software.",
         },
         {
           subtitle: "1.3 Merchants",
-          content: "The businesses or entities onboarded by the Licensee to use the Software in order to process cryptocurrency transactions with their consumers."
+          content:
+            "The individuals, businesses, or entities onboarded by the Licensee to access or use the Software in order to process cryptocurrency transactions with their consumers.",
         },
         {
           subtitle: "1.4 High Transaction Volume Merchants",
-          content: "A customer or merchant that is also considered a qualifying BitWisdom Ai Network customer who expects or performs transaction volumes greater than $100,000 USD per month in cryptocurrency transactions, or any merchant whose transaction volume is deemed high risk by BitWisdom Ai Network."
+          content:
+            "A customer or merchant that is also considered a qualifying BitWisdom Ai Network customer who expects or performs transaction volumes greater than $100,000 USD per month in cryptocurrency transactions, or any merchant whose transaction volume is deemed high risk by BitWisdom Ai Network.",
         },
         {
           subtitle: "1.5 Consumers",
-          content: "The individuals or entities who use the Software through the Merchant's platform to engage in cryptocurrency transactions."
+          content:
+            "The individuals or entities who access or use the Software through the Merchant's platform to engage in cryptocurrency transactions.",
         },
         {
           subtitle: "1.6 Residual Payments",
-          content: "A 1.25% percentage of transaction fees earned by Licensee based on the cryptocurrency transactions facilitated by the Software, paid to Licensee for their role in onboarding and maintaining merchants."
+          content:
+            "A 1.25% percentage of transaction fees earned by Licensee based on the cryptocurrency transactions facilitated by the Software, paid to Licensee for their role in onboarding and maintaining merchants.",
         },
         {
           subtitle: "1.7 BitWisdom Ai Network Residual",
-          content: "BitWisdom Ai Network retains a 0.19444444444% residual fee on every transaction processed through the Software. This fee is in addition to the residual payments made to the Licensee."
+          content:
+            "BitWisdom Ai Network retains a 0.19444444444% residual fee on every transaction processed through the Software. This fee is in addition to the residual payments made to the Licensee.",
         },
         {
           subtitle: "1.8 Network Fees",
-          content: "Additional network and blockchain transaction fees, which are typically 0.05% or less, but may fluctuate based on network conditions, market congestion, or other factors. These fees are unavoidable and are not within BitWisdom Ai Network's control."
+          content:
+            "Additional network and blockchain transaction fees, which are typically 0.05% or less, but may fluctuate based on network conditions, market congestion, or other factors. These fees are unavoidable and are not within BitWisdom Ai Network's control.",
         },
         {
           subtitle: "1.9 Transaction Volume",
-          content: "The aggregate total value of cryptocurrency transactions processed by the Software through the merchant's system, measured over a rolling 30-day or calendar month period."
+          content:
+            "The aggregate total value of cryptocurrency transactions processed by the Software through the merchant's system, measured over a rolling 30-day or calendar month period.",
         },
         {
           subtitle: "1.10 Tiered Licensing Fees",
-          content: "The monthly fees payable by Licensee to BitWisdom Ai Network, based on the transaction volume generated by the Merchants onboarded by the Licensee to use the Software, as outlined in Section 4."
-        }
-      ]
+          content:
+            "The monthly fees payable by Licensee to BitWisdom Ai Network, based on the transaction volume generated by the Merchants onboarded by the Licensee to access or use the Software, as outlined in Section 4.",
+        },
+      ],
     },
+
     {
       title: "LICENSE GRANT AND RESTRICTIONS",
       subsections: [
         {
           subtitle: "2.1 Grant of License",
-          content: "Subject to the terms and conditions of this Agreement, BitWisdom Ai Network grants to Licensee a non-exclusive, non-transferable, and revocable license to use the Software solely for the purpose of facilitating cryptocurrency transactions between the Licensee's onboarded Merchants and their Consumers, including if the Licensee is a Merchant."
+          content:
+            "Subject to the terms and conditions of this Agreement, BitWisdom Ai Network grants to Licensee a non-exclusive, non-transferable, and revocable license to access and use the Software solely for the purpose of facilitating cryptocurrency transactions between the Licensee's onboarded Merchants and their Consumers, including if the Licensee is a Merchant.",
         },
         {
           subtitle: "2.2 Residual Payment Structure",
-          content: "Licensee will receive a residual payment equal to 1.25% of the transaction fees generated by transactions processed via the Software. These payments will be distributed to Licensee monthly, on the 28th day of each month, and are based on the volume of transactions processed by them or their onboarded Merchants during the preceding month."
+          content:
+            "Licensee will receive a residual payment equal to 1.25% of the transaction fees generated by transactions processed via the Software. These payments will be distributed to Licensee monthly, on the 28th day of each month, and are based on the volume of transactions processed by them or their onboarded Merchants during the preceding month.",
         },
         {
           subtitle: "2.3 BitWisdom Ai Network Residual",
-          content: "BitWisdom Ai Network will retain a 0.19444444444% residual fee on every transaction processed by its Software. This fee is applied in addition to the 1.25% residual fee taken by Licensee from the transactions processed by their Merchants."
+          content:
+            "BitWisdom Ai Network will retain a 0.19444444444% residual fee on every transaction processed by its Software. This fee is applied in addition to the 1.25% residual fee taken by Licensee from the transactions processed by their Merchants.",
         },
         {
           subtitle: "2.4 Network Fees",
-          content: "Licensee acknowledges and agrees that in addition to the 1.25% residual fee charged to Merchants by Licensee, the total transaction fees charged to Merchants may include network fees, which typically total 0.05% but may fluctuate. These fees are associated with the cryptocurrency network or blockchain used for the transactions, and are not controlled or directly impacted by BitWisdom Ai Network. Network conditions, market congestion, or other factors may occasionally cause these fees to increase, regardless of the automated Ai system's attempts to mitigate higher fees, resulting in a higher overall fee for the Merchant."
+          content:
+            "Licensee acknowledges and agrees that in addition to the 1.25% residual fee charged to Merchants by Licensee, the total transaction fees charged to Merchants may include network fees, which typically total 0.05% but may fluctuate. These fees are associated with the cryptocurrency network or blockchain used for the transactions, and are not controlled or directly impacted by BitWisdom Ai Network. Network conditions, market congestion, or other factors may occasionally cause these fees to increase, regardless of the automated Ai system's attempts to mitigate higher fees, resulting in a higher overall fee for the Merchant.",
         },
         {
           subtitle: "2.5 Fee Structure and Fluctuations",
-          content: "The total fee charged to each Merchant for a transaction may therefore range from approximately 1.5% or less of the transaction amount but could occasionally exceed this amount if network conditions or transaction costs increase beyond the usual threshold. BitWisdom Ai Network does not control or guarantee the stability of network fees and is not liable for any fluctuations in the total transaction fees charged to Merchants."
+          content:
+            "The total fee charged to each Merchant for a transaction may therefore range from approximately 1.5% or less of the transaction amount but could occasionally exceed this amount if network conditions or transaction costs increase beyond the usual threshold. BitWisdom Ai Network does not control or guarantee the stability of network fees and is not liable for any fluctuations in the total transaction fees charged to Merchants.",
         },
         {
           subtitle: "2.6 Fee Adjustment Based on Transaction Volume",
-          content: "Licensee shall pay the tiered licensing fees as outlined in Section 4, with the amount of the monthly fee based on the total volume of cryptocurrency transactions processed by the Licensee's onboarded Merchants during the previous month. The tiered fee structure is as follows: $100.00 USD minimum monthly licensing fee for transaction volumes below the first threshold. Once transaction volume surpasses the first threshold, the licensing fee will increase to $200.00 USD. Upon surpassing subsequent thresholds, the licensing fee will increase by increments of $100.00 USD at each new threshold, up to a maximum fee of $1,000.00 USD. $1,000.00 USD is the maximum monthly licensing fee, regardless of transaction volume exceeding the highest tier. If Licensee's transaction volume exceeds the $1,000.00 USD tiered licensing fee threshold, the monthly licensing fee shall remain fixed at $1,000.00 USD and will not increase further, regardless of any additional transactions processed."
-        }
-      ]
+          content:
+            "Licensee shall pay the tiered licensing fees as outlined in Section 4, with the amount of the monthly fee based on the total volume of cryptocurrency transactions processed by the Licensee's onboarded Merchants during the previous month. The tiered fee structure is as follows: $100.00 USD minimum monthly licensing fee for transaction volumes below the first threshold. Once transaction volume surpasses the first threshold, the licensing fee will increase to $200.00 USD. Upon surpassing subsequent thresholds, the licensing fee will increase by increments of $100.00 USD at each new threshold, up to a maximum fee of $1,000.00 USD. $1,000.00 USD is the maximum monthly licensing fee, regardless of transaction volume exceeding the highest tier. If Licensee's transaction volume exceeds the $1,000.00 USD tiered licensing fee threshold, the monthly licensing fee shall remain fixed at $1,000.00 USD and will not increase further, regardless of any additional transactions processed.",
+        },
+      ],
     },
+
     {
       title: "DISCLAIMER OF WARRANTIES",
       subsections: [
         {
           subtitle: "3.1 No Warranty",
-          content: "THE SOFTWARE IS PROVIDED \"AS IS,\" AND BITWISDOM AI NETWORK MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. BITWISDOM AI NETWORK DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE, UNINTERRUPTED, OR SECURE, AND DOES NOT GUARANTEE THAT CRYPTOCURRENCY TRANSACTIONS WILL BE PROCESSED WITHOUT LOSS, INTERRUPTION, OR ERROR."
+          content:
+            'THE SOFTWARE IS PROVIDED "AS IS," AND BITWISDOM AI NETWORK MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. BITWISDOM AI NETWORK DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE, UNINTERRUPTED, OR SECURE, AND DOES NOT GUARANTEE THAT CRYPTOCURRENCY TRANSACTIONS WILL BE PROCESSED WITHOUT LOSS, INTERRUPTION, OR ERROR.',
         },
         {
           subtitle: "3.2 Cryptocurrency Risks",
-          content: "Licensee acknowledges that cryptocurrency is inherently volatile and susceptible to market risks, fraud, theft, hacking, and other forms of loss. BitWisdom Ai Network is not responsible for any loss of cryptocurrency or other financial loss incurred by Licensee, Merchants, or Consumers, regardless of any efforts made by BitWisdom Ai Network to mitigate such risks."
-        }
-      ]
+          content:
+            "Licensee acknowledges that cryptocurrency is inherently volatile and susceptible to market risks, fraud, theft, hacking, and other forms of loss. BitWisdom Ai Network is not responsible for any loss of cryptocurrency or other financial loss incurred by Licensee, Merchants, or Consumers, regardless of any efforts made by BitWisdom Ai Network to mitigate such risks.",
+        },
+      ],
     },
+
     {
       title: "LIMITATION OF LIABILITY",
       subsections: [
         {
           subtitle: "4.1 Limitation of Liability",
-          content: "UNDER NO CIRCUMSTANCES SHALL BITWISDOM AI NETWORK BE LIABLE TO LICENSEE, ANY MERCHANT, CONSUMER, OR ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, OR CRYPTOCURRENCY, EVEN IF BITWISDOM AI NETWORK HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE TOTAL LIABILITY OF BITWISDOM AI NETWORK UNDER THIS AGREEMENT SHALL BE LIMITED TO THE AMOUNT PAID BY LICENSEE FOR THE SOFTWARE IN THE 12 MONTHS IMMEDIATELY PRECEDING THE CLAIM."
+          content:
+            "UNDER NO CIRCUMSTANCES SHALL BITWISDOM AI NETWORK BE LIABLE TO LICENSEE, ANY MERCHANT, CONSUMER, OR ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, OR CRYPTOCURRENCY, EVEN IF BITWISDOM AI NETWORK HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE TOTAL LIABILITY OF BITWISDOM AI NETWORK UNDER THIS AGREEMENT SHALL BE LIMITED TO THE AMOUNT PAID BY LICENSEE FOR THE SOFTWARE IN THE 12 MONTHS IMMEDIATELY PRECEDING THE CLAIM.",
         },
         {
           subtitle: "4.2 No Liability for Fluctuating Fees",
-          content: "BitWisdom Ai Network is not responsible for any increase in transaction fees charged to Merchants due to fluctuations in network fees or other unavoidable market conditions. BitWisdom Ai Network does not control or guarantee the stability of network fees or other external transaction costs, and Licensee acknowledges that these fees may fluctuate."
+          content:
+            "BitWisdom Ai Network is not responsible for any increase in transaction fees charged to Merchants due to fluctuations in network fees or other unavoidable market conditions. BitWisdom Ai Network does not control or guarantee the stability of network fees or other external transaction costs, and Licensee acknowledges that these fees may fluctuate.",
         },
         {
           subtitle: "4.3 No Liability for Misuse or Tampering",
-          content: "BitWisdom Ai Network is not responsible for any loss or damage resulting from the misuse, tampering, or unauthorized modification of the Software by Licensee, Merchants, or Consumers, or any other party."
+          content:
+            "BitWisdom Ai Network is not responsible for any loss or damage resulting from the misuse, tampering, or unauthorized modification of the Software by Licensee, Merchants, or Consumers, or any other party.",
         },
         {
           subtitle: "4.4 Loss of Funds",
-          content: "BitWisdom Ai Network does not assume any liability for any loss of cryptocurrency or funds resulting from errors, fraud, hacking, or any failure in the cryptocurrency network or blockchain used by the Software."
+          content:
+            "BitWisdom Ai Network does not assume any liability for any loss of cryptocurrency or funds resulting from errors, fraud, hacking, or any failure in the cryptocurrency network or blockchain used by the Software.",
         },
         {
           subtitle: "4.5 Liability for High Transaction Volume Merchants",
-          content: "In recognition of the risks associated with high transactional volume, including but not limited to fraud, chargebacks, money laundering, and misuse of the system, BitWisdom Ai Network is not responsible for any transaction-related disputes, losses, or penalties that result from the actions of Licensee or their merchants. Licensee assumes full responsibility for: Ensuring all transactions comply with applicable laws (including anti-money laundering and tax regulations). Managing and securing all transactions and funds processed through BitWisdom Ai Network's Software. BitWisdom Ai Network's liability is limited to the maximum amount paid by Licensee for the use of the Software in the last 12 months preceding a claim. BitWisdom Ai Network shall not be liable for any indirect, incidental, special, or consequential damages arising from the use or inability to use the Software."
-        }
-      ]
+          content:
+            "In recognition of the risks associated with high transactional volume, including but not limited to fraud, chargebacks, money laundering, and misuse of the Software, BitWisdom Ai Network is not responsible for any transaction-related disputes, losses, or penalties that result from the actions of Licensee or their merchants. Licensee assumes full responsibility for ensuring all transactions comply with applicable laws, managing and securing all transactions processed through the Software, and maintaining compliance. BitWisdom Ai Network's liability is limited to the maximum amount paid by Licensee for the use of the Software in the last 12 months preceding a claim.",
+        },
+      ],
     },
+
     {
       title: "INDEMNIFICATION",
       subsections: [
         {
           subtitle: "5.1 Indemnity",
-          content: "Licensee agrees to indemnify, defend, and hold harmless BitWisdom Ai Network, its affiliates, officers, directors, employees, and agents from any and all claims, damages, liabilities, losses, or expenses (including legal fees) arising from or related to: The use or misuse of the Software by Licensee, Merchants, or Consumers. Any breach of this Agreement by Licensee or their Merchants. Any unauthorized tampering or modification of the Software by Licensee or their Merchants. Any claims arising from the underlying cryptocurrency transactions facilitated by the Software."
-        }
-      ]
+          content:
+            "Licensee agrees to indemnify, defend, and hold harmless BitWisdom Ai Network, its affiliates, officers, directors, employees, successors, and agents from any and all claims, damages, liabilities, losses, or expenses (including legal fees) arising from or related to the use, access, lack of access, or misuse of the Software by Licensee, Merchants, or Consumers; any breach of this Agreement; unauthorized tampering; or any claims arising from cryptocurrency transactions facilitated by the Software.",
+        },
+      ],
     },
+
     {
       title: "CUSTOMER OBLIGATIONS AND RESPONSIBILITIES",
       subsections: [
         {
           subtitle: "6.1 Security and Maintenance",
-          content: "Licensee is responsible for maintaining the security of their systems, including the secure handling of private keys, API credentials, and other sensitive information. BitWisdom Ai Network is not liable for any loss resulting from Licensee's failure to take necessary security precautions."
+          content:
+            "Licensee is responsible for maintaining the security of their systems, including the secure handling of private keys, API credentials, and other sensitive information. BitWisdom Ai Network is not liable for any loss resulting from Licensee's failure to take necessary and/or reasonable security precautions.",
         },
         {
           subtitle: "6.2 Compliance with Laws",
-          content: "Licensee agrees to ensure that Merchants comply with all applicable local, state, federal, and international laws and regulations governing cryptocurrency transactions. Licensee must also ensure that their Merchants and Consumers comply with the terms of this Agreement."
+          content:
+            "Licensee agrees to ensure that Merchants comply with all applicable local, state, federal, and international laws and regulations governing cryptocurrency transactions. Licensee must also ensure that their Merchants and Consumers comply with the terms of this Agreement.",
         },
         {
           subtitle: "6.3 Merchant Onboarding and Oversight",
-          content: "Licensee is solely responsible for onboarding and managing Merchants who will be using the Software. BitWisdom Ai Network is not responsible for any Merchant's use or misuse of the Software, nor for any disputes that may arise between Licensee and their Merchants."
-        }
-      ]
+          content:
+            "Licensee is solely responsible for onboarding and managing Merchants who will be using or accessing the Software. BitWisdom Ai Network is not responsible for any Merchant's use, access, lack of access, or misuse of the Software, nor for any disputes that may arise between Licensee and their Merchants.",
+        },
+      ],
     },
+
     {
       title: "TAMPERING AND PUNITIVE MEASURES",
       subsections: [
         {
           subtitle: "7.1 Tampering Detection",
-          content: "BitWisdom Ai Network employs security measures to detect unauthorized tampering or modification of the Software. If BitWisdom Ai Network detects tampering, manipulation, or any unauthorized attempt to alter or interfere with the Software's code, functionality, or security mechanisms, the following actions may be taken at BitWisdom Ai Network's sole discretion: Immediate Termination: BitWisdom Ai Network may immediately terminate the Licensee's right to use the Software and the Services, without notice, if tampering is detected. Increased Fees: BitWisdom Ai Network may impose punitive fees on the Licensee, which may include but are not limited to: Increased licensing fees for continued use of the Software. Higher transaction fees for processed cryptocurrency transactions. Escalating Penalties: If tampering persists after detection and corrective action has been taken, BitWisdom Ai Network may further increase the fees or terminate the Agreement. The Licensee acknowledges that such actions are necessary to maintain the integrity and security of the Software and the cryptocurrency transactions facilitated by it."
+          content:
+            "BitWisdom Ai Network employs security measures to detect unauthorized tampering or modification of the Software. If tampering is detected, BitWisdom Ai Network may immediately terminate access, increase fees, impose penalties, or escalate consequences. These actions are necessary to maintain the integrity and security of the system.",
         },
         {
           subtitle: "7.2 Consequences of Tampering",
-          content: "Tampering with the Software or any violation of this Agreement may result in severe penalties, including the termination of access."
-        }
-      ]
+          content:
+            "Tampering with the Software or any violation of this Agreement may result in severe penalties, including the termination of access and potential civil and/or criminal action.",
+        },
+      ],
     },
+
     {
       title: "TERM AND TERMINATION",
       subsections: [
         {
           subtitle: "8.1 Term",
-          content: "This Agreement shall remain in effect unless terminated by either party as provided herein."
+          content:
+            "This Agreement shall remain in effect unless terminated by either party as provided herein.",
         },
         {
           subtitle: "8.2 Termination for Cause",
-          content: "BitWisdom Ai Network may immediately terminate this Agreement if Licensee or any Merchant violates the terms and conditions of this Agreement, including but not limited to unauthorized tampering with the Software or engaging in fraudulent activity."
+          content:
+            "BitWisdom Ai Network may immediately terminate this Agreement if Licensee or any Merchant violates the terms and conditions of this Agreement, including but not limited to unauthorized tampering with the Software or engaging in fraudulent activity.",
         },
         {
           subtitle: "8.3 Effect of Termination",
-          content: "Upon termination of this Agreement, Licensee shall immediately cease using the Software and destroy or return any copies of the Software in their possession. Any outstanding residual payments owed to Licensee as of the termination date shall be settled according to the payment terms."
-        }
-      ]
+          content:
+            "Upon termination, Licensee shall immediately cease using and accessing the Software and destroy or return all copies. Any outstanding residual payments owed to Licensee shall be settled according to payment terms.",
+        },
+      ],
     },
+
     {
       title: "HIGH TRANSACTION VOLUME CLAUSE",
       subsections: [
         {
-          subtitle: "Transaction Monitoring and Reporting",
-          content: "If Licensee processes transactions that exceed $100,000 USD in a rolling 30-day period, BitWisdom Ai Network reserves the right to monitor, audit, and report on transaction activity as per applicable AML/KYC requirements."
+          subtitle: "9.1 Transaction Monitoring and Reporting",
+          content:
+            "If Licensee processes transactions exceeding $100,000 USD in a rolling 30-day period, BitWisdom Ai Network reserves the right to monitor, audit, and report on transaction activity per applicable AML/KYC requirements.",
         },
         {
-          subtitle: "Increased Scrutiny for High Transaction Volumes",
-          content: "High Transaction Volume Merchants may be subject to additional compliance measures, including but not limited to: Enhanced KYC (Know Your Customer) verification. AML (Anti-Money Laundering) due diligence, including transaction monitoring and screening. Periodic reviews of business operations and transaction patterns. BitWisdom Ai Network reserves the right to terminate or suspend access to the Software if any transactions exceed regulatory thresholds or if the merchant fails to meet required compliance protocols."
-        }
-      ]
+          subtitle: "9.2 Increased Scrutiny for High Transaction Volumes",
+          content:
+            "High Transaction Volume Merchants may be subject to enhanced KYC, AML due diligence, periodic reviews, and activity screening. BitWisdom Ai Network may suspend or terminate access if regulatory thresholds are exceeded or compliance protocols are not met.",
+        },
+      ],
     },
+
     {
       title: "COMPLIANCE WITH AML/KYC REGULATIONS",
       subsections: [
         {
-          subtitle: "AML/KYC Obligations",
-          content: "Licensee agrees to provide all necessary information for AML/KYC checks, including but not limited to business registration, identification documents, proof of address, and source of funds. BitWisdom Ai Network reserves the right to suspend or terminate the Licensee's access to the Software if any discrepancies, fraudulent activity, or regulatory violations are identified."
+          subtitle: "10.1 AML/KYC Obligations",
+          content:
+            "Licensee agrees to provide all necessary information for AML/KYC checks. BitWisdom Ai Network may suspend or terminate access if discrepancies, fraudulent activity, or regulatory violations are detected.",
         },
         {
-          subtitle: "High-Risk Merchant Policy",
-          content: "BitWisdom Ai Network may categorize Licensees with high transactional volume or high-risk business activities as \"High-Risk Merchants\" and implement additional AML/KYC protocols. These may include enhanced monitoring, reporting, or even account termination if suspicious activity is detected."
+          subtitle: "10.2 High-Risk Merchant Policy",
+          content:
+            "BitWisdom Ai Network may classify certain high-volume or high-risk activities as high-risk merchants and apply enhanced monitoring, reporting, or account termination as needed.",
         },
         {
-          subtitle: "Suspension for Non-Compliance",
-          content: "Failure to comply with AML/KYC regulations will result in the suspension or termination of access to the Software, and Licensee may be held responsible for any financial or legal consequences resulting from their non-compliance."
-        }
-      ]
+          subtitle: "10.3 Suspension for Non-Compliance",
+          content:
+            "Failure to comply with AML/KYC regulations will result in suspension or termination of access. Licensee may be held responsible for any financial or legal consequences.",
+        },
+      ],
     },
+
     {
       title: "DISPUTE RESOLUTION",
       subsections: [
         {
           subtitle: "11.1 Arbitration",
-          content: "Any dispute, controversy, or claim arising out of or related to this Agreement, including its existence, validity, or termination, shall be resolved exclusively through binding arbitration. The arbitration shall take place in Atlanta, Georgia, under the rules of the American Arbitration Association."
+          content:
+            "Any dispute arising from this Agreement shall be resolved exclusively through binding arbitration in Atlanta, Georgia, under the rules of the American Arbitration Association.",
         },
         {
           subtitle: "11.2 Governing Law",
-          content: "This Agreement shall be governed by and construed in accordance with the laws of the State of Georgia, United States, without regard to its conflict of law principles."
-        }
-      ]
+          content:
+            "This Agreement shall be governed by and construed in accordance with the laws of the State of Georgia, United States, without regard to conflict-of-law principles.",
+        },
+      ],
     },
+
     {
       title: "MISCELLANEOUS",
       subsections: [
         {
           subtitle: "12.1 Entire Agreement",
-          content: "This Agreement constitutes the entire agreement between the parties with respect to the subject matter hereof and supersedes all prior discussions, negotiations, or agreements, whether written or oral."
+          content:
+            "This Agreement constitutes the entire agreement between the parties and supersedes all prior discussions, agreements, or understandings.",
         },
         {
           subtitle: "12.2 Amendments",
-          content: "Any amendments or modifications to this Agreement must be in writing and signed by both parties."
+          content:
+            "Any amendments or modifications must be in writing and signed by both parties.",
         },
         {
           subtitle: "12.3 Severability",
-          content: "If any provision of this Agreement is found to be invalid, illegal, or unenforceable, the remaining provisions shall remain in full force and effect."
-        }
-      ]
-    }
+          content:
+            "If any provision of this Agreement is found invalid or unenforceable, the remaining provisions shall remain in full force and effect.",
+        },
+      ],
+    },
   ];
 
   return (
     <section className="relative bg-[#0E0E0E] text-white py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
-      {/* Decorative Background */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
-        {/* Introduction */}
         <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16">
           <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
-            This Software License Agreement (the "Agreement") is made and entered into by and between <span className="font-semibold text-cyan-400">BitWisdom Ai Network</span>, a technology company incorporated under the laws of the State of Georgia, with its principal place of business in Atlanta, Georgia, USA ("Licensor" or "BitWisdom Ai Network"), and the individual or entity executing this Agreement as the Licensee (the "Licensee").
+            This Software License Agreement (the "Agreement") is made and
+            entered into by and between{" "}
+            <span className="font-semibold text-cyan-400">
+              BitWisdom Ai Network, LaLuz, LLC
+            </span>
+            , a technology company incorporated under the laws of the State of
+            Georgia, with its principal place of business in Atlanta, Georgia,
+            United States ("Licensor" or "BitWisdom Ai Network"), and the
+            individual or entity executing this Agreement as the Licensee (the
+            "Licensee").
           </p>
           <p className="text-red-400 text-sm sm:text-base md:text-lg leading-relaxed mt-4 font-semibold">
-            By accessing or using the Software, the Licensee agrees to the terms of this Agreement.
+            By accessing or using the Software, the Licensee agrees to the terms
+            of this Agreement.
           </p>
         </div>
 
-        {/* License Sections */}
         <div className="space-y-8 sm:space-y-10 md:space-y-12">
           {sections.map((section, index) => (
             <div
@@ -282,7 +342,6 @@ const LicenseContent = () => {
           ))}
         </div>
 
-        {/* Important Notice */}
         <div
           className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 bg-cyan-400/10 border border-cyan-400/50 rounded-xl p-4 sm:p-5 md:p-6 lg:p-8"
           style={{
@@ -293,7 +352,11 @@ const LicenseContent = () => {
             Agreement Acknowledgment
           </h3>
           <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
-            By accessing or using the Software, you acknowledge that you have read, understood, and agree to be bound by this Software License Agreement. This is a legally binding agreement between you and BitWisdom Ai Network. If you do not agree to these terms, you must not use the Software.
+            By accessing or using the Software, you acknowledge that you have
+            read, understood, and agree to be bound by this Software License
+            Agreement. This is a legally binding agreement between you and
+            BitWisdom Ai Network. If you do not agree to these terms, you must
+            not use the Software.
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../components/landing/Banner";
 import NavBar from "../components/landing/NavBar";
-import CookiesHero from "../components/cookies/CookiesHero";
+import CookiesHero from "../components/faq/CookiesHero";
 import CookiesContent from "../components/cookies/CookiesContent";
 import Footer from "../components/landing/Footer";
 
