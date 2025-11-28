@@ -34,6 +34,9 @@ const BitWisdom = () => {
     "A win-win for everyone, your merchants save on transaction processing fees and you get a residual.",
     "Our system has no merchant chargebacks or PCI Compliance!",
     "Contact us or schedule a callback today to transform your merchant network!",
+    "We strive for fairness for all and have implemented a cost-of-living adjustment for all other countries.",
+    "This means that our licensing fees are much lower for many countries.",
+    "We're sacrificing licensing fees for a fairer system for all, but we believe in the worldwide adoption of Bitcoin.",
   ];
 
   return (

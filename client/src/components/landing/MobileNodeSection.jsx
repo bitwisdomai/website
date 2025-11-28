@@ -168,11 +168,11 @@ const MobileNodeSection = () => {
                     alt="nodeFON Logo"
                     className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain md:-ml-6"
                   />
-                  <span className="bg-gradient-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
-                    - World's First
+                  <span className="bg-linear-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
+                    : World's First
                   </span>
                 </div>
-                <span className="bg-gradient-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
+                <span className="bg-linear-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
                   Mobile Crypto Node
                 </span>
               </div>
