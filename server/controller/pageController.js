@@ -102,8 +102,75 @@ export const getPageBySlug = asyncHandler(async (req, res) => {
     return errorResponse(res, 404, 'Page not found');
   }
 
-  return successResponse(res, 200, 'Page retrieved successfully', { page });
+  // Handle SEO variants if enabled
+  let selectedVariant = null;
+  if (page.seoVariantSettings?.enabled && page.seoVariants?.length > 0) {
+    const activeVariants = page.seoVariants.filter(v => v.isActive);
+
+    if (activeVariants.length > 0) {
+      const strategy = page.seoVariantSettings.strategy || 'random';
+
+      switch (strategy) {
+        case 'weighted':
+          selectedVariant = selectWeightedVariant(activeVariants);
+          break;
+        case 'sequential':
+          selectedVariant = selectSequentialVariant(activeVariants);
+          break;
+        case 'time-based':
+          selectedVariant = selectTimeBasedVariant(activeVariants);
+          break;
+        case 'random':
+        default:
+          selectedVariant = activeVariants[Math.floor(Math.random() * activeVariants.length)];
+          break;
+      }
+
+      // Increment impression count
+      if (selectedVariant) {
+        const variantIndex = page.seoVariants.findIndex(v => v._id.equals(selectedVariant._id));
+        if (variantIndex !== -1) {
+          page.seoVariants[variantIndex].impressions += 1;
+          await page.save();
+        }
+      }
+    }
+  }
+
+  return successResponse(res, 200, 'Page retrieved successfully', {
+    page,
+    selectedSeoVariant: selectedVariant
+  });
 });
+
+// Helper function to select variant based on weight
+function selectWeightedVariant(variants) {
+  const totalWeight = variants.reduce((sum, v) => sum + (v.weight || 1), 0);
+  let random = Math.random() * totalWeight;
+
+  for (const variant of variants) {
+    random -= (variant.weight || 1);
+    if (random <= 0) {
+      return variant;
+    }
+  }
+
+  return variants[0];
+}
+
+// Helper function to select variant sequentially (round-robin based on impressions)
+function selectSequentialVariant(variants) {
+  return variants.reduce((prev, current) =>
+    (current.impressions < prev.impressions) ? current : prev
+  );
+}
+
+// Helper function to select variant based on time (hour of day)
+function selectTimeBasedVariant(variants) {
+  const hour = new Date().getHours();
+  const index = hour % variants.length;
+  return variants[index];
+}
 
 // @desc    Update page
 // @route   PUT /api/pages/:id
@@ -224,4 +291,139 @@ export const duplicatePage = asyncHandler(async (req, res) => {
   });
 
   return successResponse(res, 201, 'Page duplicated successfully', { page: duplicatedPage });
+});
+
+// @desc    Add SEO variant to a page
+// @route   POST /api/pages/:id/seo-variants
+// @access  Private
+export const addSeoVariant = asyncHandler(async (req, res) => {
+  const page = await Page.findById(req.params.id);
+
+  if (!page) {
+    return errorResponse(res, 404, 'Page not found');
+  }
+
+  const { name, metaTitle, metaDescription, metaKeywords, ogTitle, ogDescription, ogImage, weight } = req.body;
+
+  const newVariant = {
+    name,
+    metaTitle,
+    metaDescription,
+    metaKeywords,
+    ogTitle,
+    ogDescription,
+    ogImage,
+    weight: weight || 1,
+    isActive: true,
+    impressions: 0,
+    clicks: 0
+  };
+
+  page.seoVariants.push(newVariant);
+  await page.save();
+
+  return successResponse(res, 201, 'SEO variant added successfully', { page });
+});
+
+// @desc    Update SEO variant
+// @route   PUT /api/pages/:id/seo-variants/:variantId
+// @access  Private
+export const updateSeoVariant = asyncHandler(async (req, res) => {
+  const page = await Page.findById(req.params.id);
+
+  if (!page) {
+    return errorResponse(res, 404, 'Page not found');
+  }
+
+  const variantIndex = page.seoVariants.findIndex(v => v._id.toString() === req.params.variantId);
+
+  if (variantIndex === -1) {
+    return errorResponse(res, 404, 'SEO variant not found');
+  }
+
+  const { name, metaTitle, metaDescription, metaKeywords, ogTitle, ogDescription, ogImage, weight, isActive } = req.body;
+
+  if (name !== undefined) page.seoVariants[variantIndex].name = name;
+  if (metaTitle !== undefined) page.seoVariants[variantIndex].metaTitle = metaTitle;
+  if (metaDescription !== undefined) page.seoVariants[variantIndex].metaDescription = metaDescription;
+  if (metaKeywords !== undefined) page.seoVariants[variantIndex].metaKeywords = metaKeywords;
+  if (ogTitle !== undefined) page.seoVariants[variantIndex].ogTitle = ogTitle;
+  if (ogDescription !== undefined) page.seoVariants[variantIndex].ogDescription = ogDescription;
+  if (ogImage !== undefined) page.seoVariants[variantIndex].ogImage = ogImage;
+  if (weight !== undefined) page.seoVariants[variantIndex].weight = weight;
+  if (isActive !== undefined) page.seoVariants[variantIndex].isActive = isActive;
+
+  await page.save();
+
+  return successResponse(res, 200, 'SEO variant updated successfully', { page });
+});
+
+// @desc    Delete SEO variant
+// @route   DELETE /api/pages/:id/seo-variants/:variantId
+// @access  Private
+export const deleteSeoVariant = asyncHandler(async (req, res) => {
+  const page = await Page.findById(req.params.id);
+
+  if (!page) {
+    return errorResponse(res, 404, 'Page not found');
+  }
+
+  const variantIndex = page.seoVariants.findIndex(v => v._id.toString() === req.params.variantId);
+
+  if (variantIndex === -1) {
+    return errorResponse(res, 404, 'SEO variant not found');
+  }
+
+  page.seoVariants.splice(variantIndex, 1);
+  await page.save();
+
+  return successResponse(res, 200, 'SEO variant deleted successfully', { page });
+});
+
+// @desc    Update SEO variant settings
+// @route   PUT /api/pages/:id/seo-variant-settings
+// @access  Private
+export const updateSeoVariantSettings = asyncHandler(async (req, res) => {
+  const page = await Page.findById(req.params.id);
+
+  if (!page) {
+    return errorResponse(res, 404, 'Page not found');
+  }
+
+  const { enabled, strategy, defaultVariantId } = req.body;
+
+  if (!page.seoVariantSettings) {
+    page.seoVariantSettings = {};
+  }
+
+  if (enabled !== undefined) page.seoVariantSettings.enabled = enabled;
+  if (strategy !== undefined) page.seoVariantSettings.strategy = strategy;
+  if (defaultVariantId !== undefined) page.seoVariantSettings.defaultVariantId = defaultVariantId;
+
+  await page.save();
+
+  return successResponse(res, 200, 'SEO variant settings updated successfully', { page });
+});
+
+// @desc    Get SEO variant analytics
+// @route   GET /api/pages/:id/seo-variant-analytics
+// @access  Private
+export const getSeoVariantAnalytics = asyncHandler(async (req, res) => {
+  const page = await Page.findById(req.params.id);
+
+  if (!page) {
+    return errorResponse(res, 404, 'Page not found');
+  }
+
+  const analytics = page.seoVariants.map(variant => ({
+    id: variant._id,
+    name: variant.name,
+    impressions: variant.impressions,
+    clicks: variant.clicks,
+    ctr: variant.impressions > 0 ? (variant.clicks / variant.impressions * 100).toFixed(2) : 0,
+    isActive: variant.isActive,
+    weight: variant.weight
+  }));
+
+  return successResponse(res, 200, 'SEO variant analytics retrieved successfully', { analytics });
 });

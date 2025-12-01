@@ -29,7 +29,26 @@ const DynamicPage = () => {
         setLoading(true);
         setError(null);
         const response = await pagesAPI.getBySlug(slug);
-        setPage(response.data.data.page);
+
+        // Merge selectedSeoVariant into page.seo if it exists
+        const pageData = response.data.data.page;
+        const selectedVariant = response.data.data.selectedSeoVariant;
+
+        if (selectedVariant) {
+          // Use the selected variant's SEO data
+          pageData.seo = {
+            ...pageData.seo,
+            metaTitle: selectedVariant.metaTitle || pageData.seo?.metaTitle,
+            metaDescription: selectedVariant.metaDescription || pageData.seo?.metaDescription,
+            metaKeywords: selectedVariant.metaKeywords || pageData.seo?.metaKeywords,
+            ogTitle: selectedVariant.ogTitle || pageData.seo?.ogTitle,
+            ogDescription: selectedVariant.ogDescription || pageData.seo?.ogDescription,
+            ogImage: selectedVariant.ogImage || pageData.seo?.ogImage,
+          };
+          pageData._activeVariant = selectedVariant.name; // Store for debugging
+        }
+
+        setPage(pageData);
       } catch (err) {
         console.error('Error fetching page:', err);
         setError(err.response?.data?.message || 'Page not found');

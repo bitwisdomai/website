@@ -109,32 +109,78 @@ export const getSeoStats = asyncHandler(async (req, res) => {
     ]
   });
 
-  // Calculate SEO score (0-100)
-  let seoScore = 100;
-  if (publishedPages > 0) {
-    const metaTitlePenalty = (pagesWithoutMetaTitle / publishedPages) * 20;
-    const metaDescPenalty = (pagesWithoutMetaDescription / publishedPages) * 20;
-    const ogImagePenalty = (pagesWithoutOgImage / publishedPages) * 10;
+  // Get all published pages with their SEO data
+  const allPages = await Page.find({ status: { $in: ['published', 'draft'] } })
+    .select('title slug seo status')
+    .lean();
 
-    seoScore = Math.max(0, 100 - metaTitlePenalty - metaDescPenalty - ogImagePenalty);
+  // Calculate SEO score for each page
+  const pagesWithScores = allPages.map(page => {
+    let score = 100;
+
+    // Deduct points for missing fields
+    if (!page.seo?.metaTitle) score -= 20;
+    if (!page.seo?.metaDescription) score -= 20;
+    if (!page.seo?.ogImage) score -= 15;
+    if (!page.seo?.ogTitle) score -= 10;
+    if (!page.seo?.ogDescription) score -= 10;
+    if (!page.seo?.metaKeywords || page.seo?.metaKeywords?.length === 0) score -= 15;
+    if (page.seo?.noindex) score -= 10;
+
+    return {
+      ...page,
+      seoScore: Math.max(0, Math.round(score))
+    };
+  });
+
+  // Calculate average SEO score
+  const averageSeoScore = pagesWithScores.length > 0
+    ? Math.round(pagesWithScores.reduce((sum, page) => sum + page.seoScore, 0) / pagesWithScores.length)
+    : 0;
+
+  // Calculate pages with issues (score < 70)
+  const pagesWithIssues = pagesWithScores.filter(page => page.seoScore < 70).length;
+
+  // Build common issues array
+  const commonIssues = [];
+  if (pagesWithoutMetaTitle > 0) {
+    commonIssues.push({
+      issue: 'Missing Meta Title',
+      description: 'Pages without a meta title may not rank well in search results',
+      count: pagesWithoutMetaTitle
+    });
+  }
+  if (pagesWithoutMetaDescription > 0) {
+    commonIssues.push({
+      issue: 'Missing Meta Description',
+      description: 'Meta descriptions help improve click-through rates from search results',
+      count: pagesWithoutMetaDescription
+    });
+  }
+  if (pagesWithoutOgImage > 0) {
+    commonIssues.push({
+      issue: 'Missing OG Image',
+      description: 'Open Graph images improve social media sharing appearance',
+      count: pagesWithoutOgImage
+    });
+  }
+  if (pagesWithNoIndex > 0) {
+    commonIssues.push({
+      issue: 'Pages with No-Index',
+      description: 'These pages are excluded from search engine indexing',
+      count: pagesWithNoIndex
+    });
   }
 
   return successResponse(res, 200, 'SEO stats retrieved successfully', {
-    stats: {
-      pages: {
-        total: totalPages,
-        published: publishedPages,
-        draft: draftPages,
-        archived: archivedPages
-      },
-      seoIssues: {
-        missingMetaTitle: pagesWithoutMetaTitle,
-        missingMetaDescription: pagesWithoutMetaDescription,
-        noIndexPages: pagesWithNoIndex,
-        missingOgImage: pagesWithoutOgImage
-      },
-      seoScore: Math.round(seoScore)
-    }
+    totalPages,
+    publishedPages,
+    draftPages,
+    archivedPages,
+    averageSeoScore,
+    pagesWithIssues,
+    commonIssues,
+    pages: pagesWithScores
   });
 });
 
@@ -183,4 +229,5 @@ export const generateMetaSuggestions = asyncHandler(async (req, res) => {
       ogDescription: metaDescription || 'Learn more about our services and offerings.'
     }
   });
-});
+}); 
+

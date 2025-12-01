@@ -9,7 +9,12 @@ import {
   deletePage,
   publishPage,
   unpublishPage,
-  duplicatePage
+  duplicatePage,
+  addSeoVariant,
+  updateSeoVariant,
+  deleteSeoVariant,
+  updateSeoVariantSettings,
+  getSeoVariantAnalytics
 } from '../controller/pageController.js';
 import { protect, restrictTo } from '../middleware/auth.js';
 import { validate } from '../middleware/validation.js';
@@ -49,5 +54,12 @@ router.delete('/:id', deletePage);
 router.patch('/:id/publish', publishPage);
 router.patch('/:id/unpublish', unpublishPage);
 router.post('/:id/duplicate', duplicatePage);
+
+// SEO Variant routes
+router.post('/:id/seo-variants', addSeoVariant);
+router.put('/:id/seo-variants/:variantId', updateSeoVariant);
+router.delete('/:id/seo-variants/:variantId', deleteSeoVariant);
+router.put('/:id/seo-variant-settings', updateSeoVariantSettings);
+router.get('/:id/seo-variant-analytics', getSeoVariantAnalytics);
 
 export default router;

@@ -20,7 +20,7 @@ const pageSchema = new mongoose.Schema({
     trim: true
   },
 
-  // SEO Fields
+  // SEO Fields - Primary SEO configuration (backward compatible)
   seo: {
     metaTitle: {
       type: String,
@@ -59,6 +59,79 @@ const pageSchema = new mongoose.Schema({
     nofollow: {
       type: Boolean,
       default: false
+    }
+  },
+
+  // SEO Variants - Multiple SEO configurations for A/B testing
+  seoVariants: [{
+    name: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    isActive: {
+      type: Boolean,
+      default: true
+    },
+    weight: {
+      type: Number,
+      default: 1,
+      min: 0,
+      max: 100
+    },
+    metaTitle: {
+      type: String,
+      trim: true,
+      maxlength: [60, 'Meta title should not exceed 60 characters']
+    },
+    metaDescription: {
+      type: String,
+      trim: true,
+      maxlength: [160, 'Meta description should not exceed 160 characters']
+    },
+    metaKeywords: [{
+      type: String,
+      trim: true
+    }],
+    ogTitle: {
+      type: String,
+      trim: true
+    },
+    ogDescription: {
+      type: String,
+      trim: true
+    },
+    ogImage: {
+      type: String,
+      trim: true
+    },
+    impressions: {
+      type: Number,
+      default: 0
+    },
+    clicks: {
+      type: Number,
+      default: 0
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
+  }],
+
+  // SEO Variant Settings
+  seoVariantSettings: {
+    enabled: {
+      type: Boolean,
+      default: false
+    },
+    strategy: {
+      type: String,
+      enum: ['random', 'weighted', 'sequential', 'time-based'],
+      default: 'random'
+    },
+    defaultVariantId: {
+      type: mongoose.Schema.Types.ObjectId
     }
   },
 

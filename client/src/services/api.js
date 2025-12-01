@@ -59,7 +59,14 @@ export const pagesAPI = {
   delete: (id) => api.delete(`/pages/${id}`),
   publish: (id) => api.patch(`/pages/${id}/publish`),
   unpublish: (id) => api.patch(`/pages/${id}/unpublish`),
-  duplicate: (id) => api.post(`/pages/${id}/duplicate`)
+  duplicate: (id) => api.post(`/pages/${id}/duplicate`),
+
+  // SEO Variants
+  addSeoVariant: (id, data) => api.post(`/pages/${id}/seo-variants`, data),
+  updateSeoVariant: (id, variantId, data) => api.put(`/pages/${id}/seo-variants/${variantId}`, data),
+  deleteSeoVariant: (id, variantId) => api.delete(`/pages/${id}/seo-variants/${variantId}`),
+  updateSeoVariantSettings: (id, data) => api.put(`/pages/${id}/seo-variant-settings`, data),
+  getSeoVariantAnalytics: (id) => api.get(`/pages/${id}/seo-variant-analytics`)
 };
 
 // Templates API

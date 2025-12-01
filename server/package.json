@@ -7,6 +7,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "seed": "node utils/seedAdmin.js",
+    "seed:seo-demo": "node scripts/seedSeoVariants.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
