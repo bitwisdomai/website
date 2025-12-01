@@ -1,13 +1,38 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import QualifyingForm from "../qualifying/QualifyingForm";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showQualifyingForm, setShowQualifyingForm] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Helper function to check if a link is active
   const isActive = (path) => location.pathname === path;
+
+  // Handler for Product Waitlist button
+  const handleProductWaitlist = () => {
+    setIsMenuOpen(false); // Close mobile menu if open
+
+    if (location.pathname === "/products") {
+      // If already on products page, just scroll to the waitlist buttons section
+      const section = document.getElementById("waitlist-buttons");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } else {
+      // Navigate to products page with hash
+      navigate("/products#waitlist-buttons");
+    }
+  };
+
+  // Handler for Join Our Network button
+  const handleJoinNetwork = () => {
+    setIsMenuOpen(false); // Close mobile menu if open
+    setShowQualifyingForm(true); // Open qualifying form
+  };
 
   return (
     <nav className="relative bg-[#0E0E0E] text-white border-b border-gray-800 overflow-visible">
@@ -67,10 +92,16 @@ const Navbar = () => {
 
           {/* Grouped Buttons */}
           <div className="flex items-center gap-4">
-            <button className="border border-cyan-400 text-white px-5 py-2 rounded text-sm font-medium hover:bg-[#1A1A1A] transition">
+            <button
+              onClick={handleProductWaitlist}
+              className="border border-cyan-400 text-white px-5 py-2 rounded text-sm font-medium hover:bg-[#1A1A1A] transition"
+            >
               Product Waitlist
             </button>
-            <button className="bg-cyan-400 text-black px-5 py-2 rounded text-sm font-semibold hover:bg-cyan-300 transition">
+            <button
+              onClick={handleJoinNetwork}
+              className="bg-cyan-400 text-black px-5 py-2 rounded text-sm font-semibold hover:bg-cyan-300 transition"
+            >
               Join Our Network
             </button>
           </div>
@@ -146,14 +177,25 @@ const Navbar = () => {
           </Link>
 
           <div className="pt-4 border-t border-gray-700">
-            <button className="w-full border border-cyan-400 text-white px-5 py-2 rounded text-sm hover:bg-[#1A1A1A] transition mb-3">
+            <button
+              onClick={handleProductWaitlist}
+              className="w-full border border-cyan-400 text-white px-5 py-2 rounded text-sm hover:bg-[#1A1A1A] transition mb-3"
+            >
               Product Waitlist
             </button>
-            <button className="w-full bg-cyan-400 text-black px-5 py-2 rounded text-sm font-semibold hover:bg-cyan-300 transition">
+            <button
+              onClick={handleJoinNetwork}
+              className="w-full bg-cyan-400 text-black px-5 py-2 rounded text-sm font-semibold hover:bg-cyan-300 transition"
+            >
               Join Our Network
             </button>
           </div>
         </div>
+      )}
+
+      {/* Qualifying Form Modal */}
+      {showQualifyingForm && (
+        <QualifyingForm onClose={() => setShowQualifyingForm(false)} />
       )}
     </nav>
   );

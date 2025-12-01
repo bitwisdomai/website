@@ -1,4 +1,5 @@
 import React from "react";
+import ProtectedEmail from "../common/ProtectedEmail";
 
 const PrivacyContent = () => {
   const sections = [
@@ -101,7 +102,7 @@ const PrivacyContent = () => {
       subsections: [
         {
           subtitle: "6.1. Access and Correction",
-          content: "You have the right to access and update your personal information at any time. You can do so by logging into your account or by contacting us directly."
+          content: "You have the right to access and update your personal information at any time. You can do so by contacting us directly."
         },
         {
           subtitle: "6.2. Data Portability",
@@ -153,9 +154,9 @@ const PrivacyContent = () => {
       content: [
         "If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your personal information, please contact us at:",
         "BitWisdom Ai Network",
-        "Email: info@bitwisdom.ai",
         "Address: [To be provided upon request]"
-      ]
+      ],
+      email: { user: "info", domain: "bitwisdom.ai" }
     }
   ];
 
@@ -205,6 +206,11 @@ const PrivacyContent = () => {
                     {paragraph}
                   </p>
                 ))}
+                {section.email && (
+                  <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
+                    Email: <ProtectedEmail user={section.email.user} domain={section.email.domain} />
+                  </p>
+                )}
                 {section.subsections && section.subsections.map((subsection, sIndex) => (
                   <div key={sIndex} className="pl-2 sm:pl-3 md:pl-4 mt-3 sm:mt-4">
                     <h3 className="text-base sm:text-lg md:text-xl font-semibold text-cyan-300 mb-2 sm:mb-3">

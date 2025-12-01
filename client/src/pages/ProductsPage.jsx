@@ -1,8 +1,11 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/landing/NavBar";
 import Footer from "../components/landing/Footer";
 import Banner from "../components/landing/Banner";
 import ParticlesBackground from "../components/common/ParticlesBackground";
+import EbayStoreSection from "../components/products/EbayStoreSection";
+import QualifyingForm from "../components/qualifying/QualifyingForm";
 import phoneImg from "../assets/bwphone.png";
 import cardMachineImg from "../assets/cardmachine.png";
 import nodeMobileImg from "../assets/nodemobile.png";
@@ -11,6 +14,22 @@ import bitbackVideo from "../assets/bitbackvideo.mp4";
 import bitbackPoster from "../assets/bitback.jpg";
 
 const ProductsPage = () => {
+  const navigate = useNavigate();
+  const [showQualifyingForm, setShowQualifyingForm] = useState(false);
+
+  // Handle scroll to section when coming from another page with hash
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#waitlist-buttons') {
+      setTimeout(() => {
+        const section = document.getElementById('waitlist-buttons');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 300); // Wait for page to render
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-black">
       <Banner />
@@ -383,6 +402,9 @@ const ProductsPage = () => {
         </div>
       </section>
 
+      {/* eBay Store Section */}
+      <EbayStoreSection />
+
       {/* CTA Section */}
       <section className="relative bg-black py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden">
         {/* Particles Background */}
@@ -399,10 +421,19 @@ const ProductsPage = () => {
             processing
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-cyan-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded text-sm sm:text-base font-semibold hover:bg-cyan-300 transition">
+            <button
+              onClick={() => {
+                navigate('/contact');
+                window.scrollTo(0, 0);
+              }}
+              className="bg-cyan-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded text-sm sm:text-base font-semibold hover:bg-cyan-300 transition cursor-pointer"
+            >
               Schedule A Callback
             </button>
-            <button className="border border-cyan-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded text-sm sm:text-base font-semibold hover:bg-cyan-400/10 transition">
+            <button
+              onClick={() => setShowQualifyingForm(true)}
+              className="border border-cyan-400 text-white px-6 sm:px-8 py-3 sm:py-4 rounded text-sm sm:text-base font-semibold hover:bg-cyan-400/10 transition cursor-pointer"
+            >
               Join Our Network
             </button>
           </div>
@@ -415,6 +446,11 @@ const ProductsPage = () => {
       </section>
 
       <Footer />
+
+      {/* Qualifying Form Modal */}
+      {showQualifyingForm && (
+        <QualifyingForm onClose={() => setShowQualifyingForm(false)} />
+      )}
     </div>
   );
 };

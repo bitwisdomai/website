@@ -34,6 +34,9 @@ const BitWisdom = () => {
     "A win-win for everyone, your merchants save on transaction processing fees and you get a residual.",
     "Our system has no merchant chargebacks or PCI Compliance!",
     "Contact us or schedule a callback today to transform your merchant network!",
+    "We strive for fairness for all and have implemented a cost-of-living adjustment for all other countries.",
+    "This means that our licensing fees are much lower for many countries.",
+    "We're sacrificing licensing fees for a fairer system for all, but we believe in the worldwide adoption of Bitcoin.",
   ];
 
   return (
@@ -94,7 +97,9 @@ const BitWisdom = () => {
                   <span className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-cyan-500/20 text-cyan-400 rounded-full flex items-center justify-center text-xs sm:text-sm font-semibold">
                     {index + 1}
                   </span>
-                  <p className="flex-1 leading-relaxed text-xs sm:text-sm md:text-base">{point}</p>
+                  <p className="flex-1 leading-relaxed text-xs sm:text-sm md:text-base">
+                    {point}
+                  </p>
                 </div>
               ))}
             </div>
@@ -145,7 +150,9 @@ const BitWisdom = () => {
                   <span className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-cyan-500/20 text-cyan-400 rounded-full flex items-center justify-center text-xs sm:text-sm font-semibold">
                     {index + 1}
                   </span>
-                  <p className="flex-1 leading-relaxed text-xs sm:text-sm md:text-base">{point}</p>
+                  <p className="flex-1 leading-relaxed text-xs sm:text-sm md:text-base">
+                    {point}
+                  </p>
                 </div>
               ))}
             </div>

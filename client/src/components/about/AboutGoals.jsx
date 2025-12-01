@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import about2Img from "../../assets/about2.jpg";
 import ParticleNetwork from "./ParticleNetwork";
+import QualifyingForm from "../qualifying/QualifyingForm";
 
 const AboutGoals = () => {
+  const [showForm, setShowForm] = useState(false);
   const goals = [
     {
       number: "01",
@@ -108,11 +110,17 @@ const AboutGoals = () => {
           <p className="text-gray-400 text-sm sm:text-base mb-6">
             Ready to be part of the future of cryptocurrency transactions?
           </p>
-          <button className="bg-cyan-400 text-black px-6 sm:px-8 py-3 rounded text-sm sm:text-base font-semibold hover:bg-cyan-300 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(0,191,255,0.5)] hover:scale-110 active:scale-95">
+          <button
+            onClick={() => setShowForm(true)}
+            className="bg-cyan-400 text-black px-6 sm:px-8 py-3 rounded text-sm sm:text-base font-semibold hover:bg-cyan-300 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(0,191,255,0.5)] hover:scale-110 active:scale-95"
+          >
             Join Our Network
           </button>
         </div>
       </div>
+
+      {/* Qualifying Form Modal */}
+      {showForm && <QualifyingForm onClose={() => setShowForm(false)} />}
 
       <style>{`
         @keyframes zoomIn {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import nodeMobileImg from "../../assets/Nodemobile.png";
+import nodeFONLogo from "../../assets/nodeFONLogo.png";
 
 const MobileNodeSection = () => {
   const [open, setOpen] = useState(false);
@@ -160,9 +161,22 @@ const MobileNodeSection = () => {
           {/* Right: Content */}
           <div className="order-1 md:order-2 space-y-6 text-center md:text-left">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
-              <span className="bg-gradient-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
-                Introducing the Mobile Phone Crypto Node
-              </span>
+              <div className="flex items-center gap-2 sm:gap-3 justify-center md:justify-start flex-wrap">
+                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                  <img
+                    src={nodeFONLogo}
+                    alt="nodeFON Logo"
+                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain md:-ml-6"
+                  />
+                  <span className="bg-linear-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
+                    : World's First
+                  </span>
+                </div>
+                <span className="bg-linear-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
+                  Mobile Crypto Node
+                </span>
+              </div>
+
               <span className="block text-cyan-300 text-xs sm:text-sm md:text-base font-light mt-1">
                 (Patent-Pending)
               </span>

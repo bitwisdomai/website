@@ -11,6 +11,7 @@ const PaymentTransition = lazy(() => import("../components/landing/PaymentTransi
 const BitWisdom = lazy(() => import("../components/landing/BitWisdom"));
 const CryptoNodeSection = lazy(() => import("../components/landing/CryptoNodeSection"));
 const MobileNodeSection = lazy(() => import("../components/landing/MobileNodeSection"));
+const DonationSection = lazy(() => import("../components/landing/DonationSection"));
 const ContactForm = lazy(() => import("../components/landing/ContactForm"));
 
 const HomePage = () => {
@@ -42,6 +43,7 @@ const HomePage = () => {
         <BitWisdom />
         <CryptoNodeSection />
         <MobileNodeSection />
+        <DonationSection />
         <ContactForm />
       </Suspense>
 
