@@ -10,10 +10,20 @@
     "build:client": "cd client && npm run build",
     "start:server": "cd server && npm start"
   },
-  "keywords": ["mern", "react", "express", "mongodb", "tailwind", "aws"],
+  "keywords": [
+    "mern",
+    "react",
+    "express",
+    "mongodb",
+    "tailwind",
+    "aws"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-code": "^2.0.55"
   }
 }

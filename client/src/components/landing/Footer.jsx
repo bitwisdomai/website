@@ -75,9 +75,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-cyan-400 transition">
+                <Link
+                  to="/products"
+                  className="hover:text-cyan-400 transition"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
                   Our Products
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
@@ -86,6 +90,15 @@ const Footer = () => {
                   onClick={() => window.scrollTo(0, 0)}
                 >
                   Qualifying BW Customers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/qualifying"
+                  className="hover:text-cyan-400 transition"
+                  onClick={() => window.scrollTo(0, 0)}
+                >
+                  Join Our Network
                 </Link>
               </li>
               <li>
@@ -178,16 +191,21 @@ const Footer = () => {
                   to="/#mobile-node"
                   className="hover:text-cyan-400 transition"
                   onClick={(e) => {
-                    const section = document.getElementById('mobile-node-section');
+                    const section = document.getElementById(
+                      "mobile-node-section"
+                    );
 
                     // If already on HomePage and section exists
-                    if (window.location.pathname === '/' && section) {
+                    if (window.location.pathname === "/" && section) {
                       e.preventDefault();
-                      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      section.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
                     } else {
                       // Navigate to HomePage and scroll after load
                       e.preventDefault();
-                      window.location.href = '/#mobile-node';
+                      window.location.href = "/#mobile-node";
                       // The scroll will be handled by useEffect in HomePage
                     }
                   }}
@@ -245,7 +263,9 @@ const Footer = () => {
           <p className="text-center sm:text-right">
             Design & Development By{" "}
             <a
-              href="#"
+              href="https://tapvera.io/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-cyan-400 hover:text-cyan-300 font-semibold transition"
             >
               Tapvera

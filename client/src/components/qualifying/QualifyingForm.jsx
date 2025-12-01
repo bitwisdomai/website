@@ -25,6 +25,7 @@ const QualifyingForm = ({ onClose }) => {
     sourceOfFunds: "",
     intendedUse: "",
     taxId: "",
+    acceptedTerms: false,
   });
 
   const [files, setFiles] = useState({
@@ -42,7 +43,8 @@ const QualifyingForm = ({ onClose }) => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    setFormData({ ...formData, [e.target.name]: value });
   };
 
   const handleFileChange = (e, fieldName) => {
@@ -462,11 +464,40 @@ const QualifyingForm = ({ onClose }) => {
                 </div>
               </div>
 
+              {/* Terms and Conditions Checkbox */}
+              <div className="border border-cyan-400/20 rounded-lg p-3 sm:p-4 md:p-6">
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="acceptedTerms"
+                    name="acceptedTerms"
+                    checked={formData.acceptedTerms}
+                    onChange={handleChange}
+                    required
+                    className="mt-1 w-4 h-4 sm:w-5 sm:h-5 rounded border-cyan-400/30 bg-black/50 text-cyan-400 focus:ring-2 focus:ring-cyan-400 focus:ring-offset-0 cursor-pointer flex-shrink-0"
+                  />
+                  <label htmlFor="acceptedTerms" className="text-xs sm:text-sm text-gray-300 cursor-pointer">
+                    I agree to the{" "}
+                    <a
+                      href="/license-agreement"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-400 hover:text-cyan-300 underline transition-colors duration-200"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Terms and Conditions of License Agreement
+                    </a>
+                    <span className="text-cyan-400"> *</span>
+                  </label>
+                </div>
+              </div>
+
               {/* Submit Button */}
               <div className="flex justify-center pt-2 sm:pt-4">
                 <button
                   type="submit"
-                  className="group bg-cyan-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold hover:bg-cyan-300 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,191,255,0.6)] hover:scale-105 active:scale-95 flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
+                  className="group bg-cyan-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold hover:bg-cyan-300 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,191,255,0.6)] hover:scale-105 active:scale-95 flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  disabled={!formData.acceptedTerms}
                 >
                   Submit Application
                   <FaPaperPlane className="text-base sm:text-lg group-hover:translate-x-1 transition-transform duration-300" />
