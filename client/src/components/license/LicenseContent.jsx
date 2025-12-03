@@ -8,6 +8,7 @@ const LicenseContent = () => {
         'This License Agreement is entered into between BitWisdom Ai Network, LaLuz, LLC (hereinafter referred to as "BitWisdom Ai Network", "the Company", "we", "our", or "us") and the Licensee accepting the terms of this Agreement.',
       ],
     },
+
     {
       title: "DEFINITIONS",
       subsections: [
@@ -85,17 +86,17 @@ const LicenseContent = () => {
         {
           subtitle: "2.4 Network Fees",
           content:
-            "Licensee acknowledges and agrees that in addition to the 1.25% residual fee charged to Merchants by Licensee, the total transaction fees charged to Merchants may include network fees, which typically total 0.05% but may fluctuate. These fees are associated with the cryptocurrency network or blockchain used for the transactions, and are not controlled or directly impacted by BitWisdom Ai Network. Network conditions, market congestion, or other factors may occasionally cause these fees to increase, regardless of the automated Ai system's attempts to mitigate higher fees, resulting in a higher overall fee for the Merchant.",
+            "Licensee acknowledges and agrees that in addition to the 1.25% residual fee charged to Merchants by Licensee, the total transaction fees charged to Merchants may include network fees, which typically total 0.05% but may fluctuate.",
         },
         {
           subtitle: "2.5 Fee Structure and Fluctuations",
           content:
-            "The total fee charged to each Merchant for a transaction may therefore range from approximately 1.5% or less of the transaction amount but could occasionally exceed this amount if network conditions or transaction costs increase beyond the usual threshold. BitWisdom Ai Network does not control or guarantee the stability of network fees and is not liable for any fluctuations in the total transaction fees charged to Merchants.",
+            "The total fee charged to each Merchant for a transaction may therefore range from approximately 1.5% or less of the transaction amount but could occasionally exceed this amount if network conditions cause fees to increase.",
         },
         {
           subtitle: "2.6 Fee Adjustment Based on Transaction Volume",
           content:
-            "Licensee shall pay the tiered licensing fees as outlined in Section 4, with the amount of the monthly fee based on the total volume of cryptocurrency transactions processed by the Licensee's onboarded Merchants during the previous month. The tiered fee structure is as follows: $100.00 USD minimum monthly licensing fee for transaction volumes below the first threshold. Once transaction volume surpasses the first threshold, the licensing fee will increase to $200.00 USD. Upon surpassing subsequent thresholds, the licensing fee will increase by increments of $100.00 USD at each new threshold, up to a maximum fee of $1,000.00 USD. $1,000.00 USD is the maximum monthly licensing fee, regardless of transaction volume exceeding the highest tier. If Licensee's transaction volume exceeds the $1,000.00 USD tiered licensing fee threshold, the monthly licensing fee shall remain fixed at $1,000.00 USD and will not increase further, regardless of any additional transactions processed.",
+            "Licensee shall pay tiered licensing fees based on transaction volume. Fees increase by $100 increments at each threshold up to a maximum monthly fee of $1,000.",
         },
       ],
     },
@@ -106,12 +107,12 @@ const LicenseContent = () => {
         {
           subtitle: "3.1 No Warranty",
           content:
-            'THE SOFTWARE IS PROVIDED "AS IS," AND BITWISDOM AI NETWORK MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. BITWISDOM AI NETWORK DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE, UNINTERRUPTED, OR SECURE, AND DOES NOT GUARANTEE THAT CRYPTOCURRENCY TRANSACTIONS WILL BE PROCESSED WITHOUT LOSS, INTERRUPTION, OR ERROR.',
+            'THE SOFTWARE IS PROVIDED "AS IS," AND BITWISDOM AI NETWORK MAKES NO WARRANTIES OF ANY KIND.',
         },
         {
           subtitle: "3.2 Cryptocurrency Risks",
           content:
-            "Licensee acknowledges that cryptocurrency is inherently volatile and susceptible to market risks, fraud, theft, hacking, and other forms of loss. BitWisdom Ai Network is not responsible for any loss of cryptocurrency or other financial loss incurred by Licensee, Merchants, or Consumers, regardless of any efforts made by BitWisdom Ai Network to mitigate such risks.",
+            "Cryptocurrency involves substantial risk. BitWisdom Ai Network is not responsible for market loss, hacking, theft, or volatility issues.",
         },
       ],
     },
@@ -122,27 +123,27 @@ const LicenseContent = () => {
         {
           subtitle: "4.1 Limitation of Liability",
           content:
-            "UNDER NO CIRCUMSTANCES SHALL BITWISDOM AI NETWORK BE LIABLE TO LICENSEE, ANY MERCHANT, CONSUMER, OR ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, OR CRYPTOCURRENCY, EVEN IF BITWISDOM AI NETWORK HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE TOTAL LIABILITY OF BITWISDOM AI NETWORK UNDER THIS AGREEMENT SHALL BE LIMITED TO THE AMOUNT PAID BY LICENSEE FOR THE SOFTWARE IN THE 12 MONTHS IMMEDIATELY PRECEDING THE CLAIM.",
+            "BITWISDOM AI NETWORK IS NOT LIABLE FOR INDIRECT OR CONSEQUENTIAL DAMAGES. Liability is capped at the total license fees paid in the past 12 months.",
         },
         {
           subtitle: "4.2 No Liability for Fluctuating Fees",
           content:
-            "BitWisdom Ai Network is not responsible for any increase in transaction fees charged to Merchants due to fluctuations in network fees or other unavoidable market conditions. BitWisdom Ai Network does not control or guarantee the stability of network fees or other external transaction costs, and Licensee acknowledges that these fees may fluctuate.",
+            "BitWisdom Ai Network is not responsible for fluctuations in network or blockchain fees.",
         },
         {
           subtitle: "4.3 No Liability for Misuse or Tampering",
           content:
-            "BitWisdom Ai Network is not responsible for any loss or damage resulting from the misuse, tampering, or unauthorized modification of the Software by Licensee, Merchants, or Consumers, or any other party.",
+            "Licensee is responsible for unauthorized use or system tampering by themselves or Merchants.",
         },
         {
           subtitle: "4.4 Loss of Funds",
           content:
-            "BitWisdom Ai Network does not assume any liability for any loss of cryptocurrency or funds resulting from errors, fraud, hacking, or any failure in the cryptocurrency network or blockchain used by the Software.",
+            "BitWisdom Ai Network assumes no liability for cryptocurrency loss due to fraud, hacks, or blockchain issues.",
         },
         {
           subtitle: "4.5 Liability for High Transaction Volume Merchants",
           content:
-            "In recognition of the risks associated with high transactional volume, including but not limited to fraud, chargebacks, money laundering, and misuse of the Software, BitWisdom Ai Network is not responsible for any transaction-related disputes, losses, or penalties that result from the actions of Licensee or their merchants. Licensee assumes full responsibility for ensuring all transactions comply with applicable laws, managing and securing all transactions processed through the Software, and maintaining compliance. BitWisdom Ai Network's liability is limited to the maximum amount paid by Licensee for the use of the Software in the last 12 months preceding a claim.",
+            "High-volume merchants carry added risk. Licensee assumes full responsibility for compliance and transaction security.",
         },
       ],
     },
@@ -153,7 +154,7 @@ const LicenseContent = () => {
         {
           subtitle: "5.1 Indemnity",
           content:
-            "Licensee agrees to indemnify, defend, and hold harmless BitWisdom Ai Network, its affiliates, officers, directors, employees, successors, and agents from any and all claims, damages, liabilities, losses, or expenses (including legal fees) arising from or related to the use, access, lack of access, or misuse of the Software by Licensee, Merchants, or Consumers; any breach of this Agreement; unauthorized tampering; or any claims arising from cryptocurrency transactions facilitated by the Software.",
+            "Licensee agrees to indemnify and defend BitWisdom Ai Network against all claims arising from their use, misuse, or breach of this Agreement.",
         },
       ],
     },
@@ -164,17 +165,17 @@ const LicenseContent = () => {
         {
           subtitle: "6.1 Security and Maintenance",
           content:
-            "Licensee is responsible for maintaining the security of their systems, including the secure handling of private keys, API credentials, and other sensitive information. BitWisdom Ai Network is not liable for any loss resulting from Licensee's failure to take necessary and/or reasonable security precautions.",
+            "Licensee must maintain security of all systems, keys, and credentials.",
         },
         {
           subtitle: "6.2 Compliance with Laws",
           content:
-            "Licensee agrees to ensure that Merchants comply with all applicable local, state, federal, and international laws and regulations governing cryptocurrency transactions. Licensee must also ensure that their Merchants and Consumers comply with the terms of this Agreement.",
+            "Licensee must ensure compliance with all applicable laws, including merchants they onboard.",
         },
         {
           subtitle: "6.3 Merchant Onboarding and Oversight",
           content:
-            "Licensee is solely responsible for onboarding and managing Merchants who will be using or accessing the Software. BitWisdom Ai Network is not responsible for any Merchant's use, access, lack of access, or misuse of the Software, nor for any disputes that may arise between Licensee and their Merchants.",
+            "Licensee is responsible for all merchants they onboard and their activities.",
         },
       ],
     },
@@ -185,12 +186,11 @@ const LicenseContent = () => {
         {
           subtitle: "7.1 Tampering Detection",
           content:
-            "BitWisdom Ai Network employs security measures to detect unauthorized tampering or modification of the Software. If tampering is detected, BitWisdom Ai Network may immediately terminate access, increase fees, impose penalties, or escalate consequences. These actions are necessary to maintain the integrity and security of the system.",
+            "Tampering triggers penalties, increased fees, or immediate termination.",
         },
         {
           subtitle: "7.2 Consequences of Tampering",
-          content:
-            "Tampering with the Software or any violation of this Agreement may result in severe penalties, including the termination of access and potential civil and/or criminal action.",
+          content: "Tampering may lead to civil or criminal proceedings.",
         },
       ],
     },
@@ -201,17 +201,16 @@ const LicenseContent = () => {
         {
           subtitle: "8.1 Term",
           content:
-            "This Agreement shall remain in effect unless terminated by either party as provided herein.",
+            "This Agreement remains active until terminated by either party.",
         },
         {
           subtitle: "8.2 Termination for Cause",
           content:
-            "BitWisdom Ai Network may immediately terminate this Agreement if Licensee or any Merchant violates the terms and conditions of this Agreement, including but not limited to unauthorized tampering with the Software or engaging in fraudulent activity.",
+            "BitWisdom Ai Network may terminate access due to fraud or breach.",
         },
         {
           subtitle: "8.3 Effect of Termination",
-          content:
-            "Upon termination, Licensee shall immediately cease using and accessing the Software and destroy or return all copies. Any outstanding residual payments owed to Licensee shall be settled according to payment terms.",
+          content: "All Software use must cease immediately upon termination.",
         },
       ],
     },
@@ -222,12 +221,12 @@ const LicenseContent = () => {
         {
           subtitle: "9.1 Transaction Monitoring and Reporting",
           content:
-            "If Licensee processes transactions exceeding $100,000 USD in a rolling 30-day period, BitWisdom Ai Network reserves the right to monitor, audit, and report on transaction activity per applicable AML/KYC requirements.",
+            "High-volume Licensees may be subject to AML/KYC monitoring.",
         },
         {
           subtitle: "9.2 Increased Scrutiny for High Transaction Volumes",
           content:
-            "High Transaction Volume Merchants may be subject to enhanced KYC, AML due diligence, periodic reviews, and activity screening. BitWisdom Ai Network may suspend or terminate access if regulatory thresholds are exceeded or compliance protocols are not met.",
+            "Enhanced due diligence may be required for high-risk merchants.",
         },
       ],
     },
@@ -238,17 +237,16 @@ const LicenseContent = () => {
         {
           subtitle: "10.1 AML/KYC Obligations",
           content:
-            "Licensee agrees to provide all necessary information for AML/KYC checks. BitWisdom Ai Network may suspend or terminate access if discrepancies, fraudulent activity, or regulatory violations are detected.",
+            "Licensee must provide all AML/KYC information upon request.",
         },
         {
           subtitle: "10.2 High-Risk Merchant Policy",
-          content:
-            "BitWisdom Ai Network may classify certain high-volume or high-risk activities as high-risk merchants and apply enhanced monitoring, reporting, or account termination as needed.",
+          content: "High-risk merchants may be restricted or terminated.",
         },
         {
           subtitle: "10.3 Suspension for Non-Compliance",
           content:
-            "Failure to comply with AML/KYC regulations will result in suspension or termination of access. Licensee may be held responsible for any financial or legal consequences.",
+            "Failure to satisfy AML/KYC requirements may result in suspension.",
         },
       ],
     },
@@ -259,12 +257,11 @@ const LicenseContent = () => {
         {
           subtitle: "11.1 Arbitration",
           content:
-            "Any dispute arising from this Agreement shall be resolved exclusively through binding arbitration in Atlanta, Georgia, under the rules of the American Arbitration Association.",
+            "All disputes shall be resolved via binding arbitration in Atlanta, Georgia.",
         },
         {
           subtitle: "11.2 Governing Law",
-          content:
-            "This Agreement shall be governed by and construed in accordance with the laws of the State of Georgia, United States, without regard to conflict-of-law principles.",
+          content: "This Agreement is governed by Georgia law.",
         },
       ],
     },
@@ -275,112 +272,106 @@ const LicenseContent = () => {
         {
           subtitle: "12.1 Entire Agreement",
           content:
-            "This Agreement constitutes the entire agreement between the parties and supersedes all prior discussions, agreements, or understandings.",
+            "This Agreement is the full and complete understanding between the parties.",
         },
         {
           subtitle: "12.2 Amendments",
           content:
-            "Any amendments or modifications must be in writing and signed by both parties.",
+            "Modifications must be in writing and signed by both parties.",
         },
         {
           subtitle: "12.3 Severability",
           content:
-            "If any provision of this Agreement is found invalid or unenforceable, the remaining provisions shall remain in full force and effect.",
+            "Invalid provisions do not affect the remainder of the Agreement.",
         },
       ],
     },
   ];
 
   return (
-    <section className="relative bg-[#0E0E0E] text-white py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
+    <section className="relative bg-[#0E0E0E] text-white py-12 px-4 overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-400 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16">
-          <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
-            This Software License Agreement (the "Agreement") is made and
-            entered into by and between{" "}
+        {/* INTRO */}
+        <div className="mb-12">
+          <p className="text-gray-300 text-lg">
+            This Software License Agreement (the "Agreement") is made between{" "}
             <span className="font-semibold text-cyan-400">
               BitWisdom Ai Network, LaLuz, LLC
-            </span>
-            , a technology company incorporated under the laws of the State of
-            Georgia, with its principal place of business in Atlanta, Georgia,
-            United States ("Licensor" or "BitWisdom Ai Network"), and the
-            individual or entity executing this Agreement as the Licensee (the
-            "Licensee").
+            </span>{" "}
+            and the Licensee.
           </p>
-          <p className="text-red-400 text-sm sm:text-base md:text-lg leading-relaxed mt-4 font-semibold">
+          <p className="text-red-400 text-lg mt-4 font-semibold">
             By accessing or using the Software, the Licensee agrees to the terms
             of this Agreement.
           </p>
         </div>
 
-        <div className="space-y-8 sm:space-y-10 md:space-y-12">
+        {/* ALL SECTIONS */}
+        <div className="space-y-10">
           {sections.map((section, index) => (
             <div
               key={index}
-              className="group border border-cyan-400/30 rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 hover:border-cyan-400 transition-all duration-500 hover:shadow-[0_0_25px_rgba(0,191,255,0.2)]"
-              style={{
-                animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
-              }}
+              className="border border-cyan-400/30 rounded-xl p-6 hover:border-cyan-400 transition shadow-lg hover:shadow-cyan-400/20"
             >
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-5 md:mb-6">
-                <span className="bg-gradient-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
-                  {index + 1}. {section.title}
-                </span>
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-b from-cyan-300 to-white bg-clip-text text-transparent">
+                {index + 1}. {section.title}
               </h2>
-              <div className="space-y-4 sm:space-y-5 md:space-y-6">
-                {section.subsections.map((subsection, sIndex) => (
-                  <div key={sIndex} className="pl-2 sm:pl-3 md:pl-4">
-                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-cyan-300 mb-2 sm:mb-3">
-                      {subsection.subtitle}
-                    </h3>
-                    <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
-                      {subsection.content}
+
+              {/* If section has simple paragraph(s) */}
+              {section.content && (
+                <div className="space-y-4 pl-2">
+                  {section.content.map((text, i) => (
+                    <p
+                      key={i}
+                      className="text-gray-300 text-base leading-relaxed"
+                    >
+                      {text}
                     </p>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
+
+              {/* If section has subsections */}
+              {section.subsections?.length > 0 && (
+                <div className="space-y-6">
+                  {section.subsections.map((sub, sIndex) => (
+                    <div key={sIndex} className="pl-3">
+                      <h3 className="text-xl font-semibold text-cyan-300 mb-2">
+                        {sub.subtitle}
+                      </h3>
+                      <p className="text-gray-300 text-base leading-relaxed">
+                        {sub.content}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        <div
-          className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 bg-cyan-400/10 border border-cyan-400/50 rounded-xl p-4 sm:p-5 md:p-6 lg:p-8"
-          style={{
-            animation: "fadeInUp 0.6s ease-out 1.3s both",
-          }}
-        >
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 text-cyan-400">
+        {/* AGREEMENT ACKNOWLEDGEMENT */}
+        <div className="mt-12 bg-cyan-400/10 border border-cyan-400/40 rounded-xl p-6">
+          <h3 className="text-2xl font-bold text-cyan-400 mb-4">
             Agreement Acknowledgment
           </h3>
-          <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
+          <p className="text-gray-300 text-base leading-relaxed">
             By accessing or using the Software, you acknowledge that you have
             read, understood, and agree to be bound by this Software License
-            Agreement. This is a legally binding agreement between you and
-            BitWisdom Ai Network. If you do not agree to these terms, you must
-            not use the Software.
+            Agreement. If you do not agree to these terms, you must not use the
+            Software.
           </p>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };
 
 export default LicenseContent;
+
+
