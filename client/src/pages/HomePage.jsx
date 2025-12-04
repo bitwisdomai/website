@@ -81,7 +81,6 @@ const HomePage = () => {
         <DonationSection />
         <ContactForm />
       </Suspense>
-
       <Footer />
     </div>
   );
