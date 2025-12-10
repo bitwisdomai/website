@@ -249,7 +249,9 @@ This page itself has multiple SEO variants enabled. Refresh the page or visit it
 async function seedSeoVariantPages() {
   try {
     console.log('Connecting to MongoDB...');
-    await mongoose.connect(process.env.MONGODB_URI);
+    await mongoose.connect(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds instead of 30
+    });
     console.log('Connected to MongoDB');
 
     // Find a user to be the author (use the first admin user)
