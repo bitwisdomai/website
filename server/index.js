@@ -26,6 +26,13 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve uploads folder as static files
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
 // Request logging middleware
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
@@ -40,6 +47,7 @@ import seoRoutes from './routes/seo.js';
 import qualifyingRoutes from './routes/qualifying.js';
 import waitlistRoutes from './routes/waitlist.js';
 import contactRoutes from './routes/contact.js';
+import blogRoutes from './routes/blog.js';
 
 // Basic route
 app.get('/', (req, res) => {
@@ -54,7 +62,8 @@ app.get('/', (req, res) => {
       seo: '/api/seo',
       qualifying: '/api/qualifying',
       waitlist: '/api/waitlist',
-      contact: '/api/contact'
+      contact: '/api/contact',
+      blog: '/api/blog'
     }
   });
 });
@@ -67,6 +76,7 @@ app.use('/api/seo', seoRoutes);
 app.use('/api/qualifying', qualifyingRoutes);
 app.use('/api/waitlist', waitlistRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/blog', blogRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

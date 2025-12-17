@@ -11,8 +11,8 @@ const __dirname = path.dirname(__filename);
 // Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // Store uploads in project root, not inside server folder
-    const uploadDir = path.join(__dirname, '../../uploads/qualifying-applications');
+    // Store uploads in project root with organized structure
+    const uploadDir = path.join(__dirname, '../../uploads/qualifying/documents');
 
     // Create directory if it doesn't exist
     if (!fs.existsSync(uploadDir)) {
@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    cb(null, 'qualifying-' + file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
   }
 });
 

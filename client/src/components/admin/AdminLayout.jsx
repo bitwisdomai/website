@@ -17,6 +17,7 @@ const AdminLayout = ({ children }) => {
 
   const navLinks = [
     { path: '/admin/submissions', label: 'Submissions' },
+    { path: '/admin/blog', label: 'Blog Management' },
   ];
 
   return (

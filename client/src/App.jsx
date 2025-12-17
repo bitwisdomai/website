@@ -4,6 +4,7 @@ import AboutPage from "./pages/AboutPage";
 import QualifyingPage from "./pages/QualifyingPage";
 import ContactPage from "./pages/ContactPage";
 import BlogPage from "./pages/BlogPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
 import ProductsPage from "./pages/ProductsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsOfServicePage from "./pages/TermsOfServicePage";
@@ -23,6 +24,8 @@ import TemplateManagerPage from "./pages/admin/TemplateManagerPage";
 import UserManagementPage from "./pages/admin/UserManagementPage";
 import SEODashboardPage from "./pages/admin/SEODashboardPage";
 import SubmissionsPage from "./pages/admin/SubmissionsPage";
+import BlogListPage from "./pages/admin/BlogListPage";
+import BlogEditorPage from "./pages/admin/BlogEditorPage";
 
 function App() {
   return (
@@ -34,6 +37,7 @@ function App() {
           <Route path="/qualifying" element={<QualifyingPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
@@ -105,6 +109,30 @@ function App() {
             element={
               <ProtectedRoute>
                 <SubmissionsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/blog"
+            element={
+              <ProtectedRoute>
+                <BlogListPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/blog/new"
+            element={
+              <ProtectedRoute>
+                <BlogEditorPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/blog/edit/:id"
+            element={
+              <ProtectedRoute>
+                <BlogEditorPage />
               </ProtectedRoute>
             }
           />
