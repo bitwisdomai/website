@@ -82,7 +82,7 @@ const LoginPage = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="admin@bitwisdom.com"
+                placeholder="Enter your email"
               />
             </div>
 
@@ -119,11 +119,6 @@ const LoginPage = () => {
                 'Sign in'
               )}
             </button>
-          </div>
-
-          <div className="text-center text-sm text-gray-600">
-            <p>Default credentials:</p>
-            <p className="font-mono text-xs mt-1">admin@bitwisdom.com / admin123</p>
           </div>
         </form>
       </div>

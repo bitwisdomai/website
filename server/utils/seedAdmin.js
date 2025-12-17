@@ -13,27 +13,39 @@ const seedAdmin = async () => {
   try {
     console.log('🌱 Starting seed process...\n');
 
+    // Get admin credentials from environment variables
+    const adminName = process.env.ADMIN_NAME || 'Admin User';
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@bitwisdom.com';
+    const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
+
+    // Validate environment variables
+    if (!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD) {
+      console.log('⚠️  WARNING: Admin credentials not set in .env file!');
+      console.log('Using default credentials. Please update .env file with secure credentials.\n');
+    }
+
     // Check if admin already exists
-    const existingAdmin = await User.findOne({ email: 'admin@bitwisdom.com' });
+    const existingAdmin = await User.findOne({ email: adminEmail });
 
     if (existingAdmin) {
       console.log('❌ Admin user already exists!');
-      console.log('Email: admin@bitwisdom.com');
+      console.log(`Email: ${adminEmail}`);
       console.log('\nIf you want to reset, delete the user manually from MongoDB first.\n');
       process.exit(0);
     }
 
     // Create admin user
     const admin = await User.create({
-      name: 'Admin User',
-      email: 'admin@bitwisdom.com',
-      password: 'admin123',
+      name: adminName,
+      email: adminEmail,
+      password: adminPassword,
       role: 'admin'
     });
 
     console.log('✅ Admin user created successfully!');
-    console.log('Email: admin@bitwisdom.com');
-    console.log('Password: admin123');
+    console.log(`Name: ${adminName}`);
+    console.log(`Email: ${adminEmail}`);
+    console.log(`Password: ${adminPassword.replace(/./g, '*')}`);
     console.log('\n⚠️  IMPORTANT: Change this password after first login!\n');
 
     // Create default templates

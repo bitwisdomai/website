@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { API_BASE_URL } from "../../services/api";
 
 // ✅ Prevents white page crash if file is missing
 let ParticleNetwork;
@@ -85,7 +86,7 @@ const QualifyingForm = ({ onClose }) => {
       });
 
       const response = await fetch(
-        "http://localhost:5000/api/qualifying/submit",
+        `${API_BASE_URL}/qualifying/submit`,
         {
           method: "POST",
           body: submitData,

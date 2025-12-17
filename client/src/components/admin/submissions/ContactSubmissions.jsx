@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../../../services/api";
 
 const ContactSubmissions = () => {
   const [submissions, setSubmissions] = useState([]);
@@ -24,7 +25,7 @@ const ContactSubmissions = () => {
       setLoading(true);
       const statusParam = filter !== "all" ? `&status=${filter}` : "";
       const response = await fetch(
-        `http://localhost:5000/api/contact?page=${currentPage}&limit=10${statusParam}`
+        `${API_BASE_URL}/contact?page=${currentPage}&limit=10${statusParam}`
       );
       const data = await response.json();
 
@@ -52,7 +53,7 @@ const ContactSubmissions = () => {
   const updateStatus = async (id, newStatus) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/contact/${id}/status`,
+        `${API_BASE_URL}/contact/${id}/status`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -74,7 +75,7 @@ const ContactSubmissions = () => {
       return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/contact/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/contact/${id}`, {
         method: "DELETE",
       });
 

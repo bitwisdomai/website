@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ParticlesBackground from "../common/ParticlesBackground";
 import ebayLogo from "../../assets/ebaybw.png";
+import { API_BASE_URL } from "../../services/api";
 
 const EbayStoreSection = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -37,7 +38,7 @@ const EbayStoreSection = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/waitlist/join", {
+      const response = await fetch(`${API_BASE_URL}/waitlist/join`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

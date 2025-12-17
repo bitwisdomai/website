@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from "../../../services/api";
 
 const QualifyingSubmissions = () => {
   const [submissions, setSubmissions] = useState([]);
@@ -19,7 +20,7 @@ const QualifyingSubmissions = () => {
       setLoading(true);
       const statusParam = filter !== 'all' ? `&status=${filter}` : '';
       const response = await fetch(
-        `http://localhost:5000/api/qualifying?page=${currentPage}&limit=10${statusParam}`
+        `${API_BASE_URL}/qualifying?page=${currentPage}&limit=10${statusParam}`
       );
       const data = await response.json();
 
@@ -46,7 +47,7 @@ const QualifyingSubmissions = () => {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/qualifying/${id}/status`, {
+      const response = await fetch(`${API_BASE_URL}/qualifying/${id}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
@@ -65,7 +66,7 @@ const QualifyingSubmissions = () => {
     if (!window.confirm('Are you sure you want to delete this submission?')) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/qualifying/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/qualifying/${id}`, {
         method: 'DELETE',
       });
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaUser, FaEnvelope, FaBuilding, FaPaperPlane } from "react-icons/fa";
 import ParticleNetwork from "../about/ParticleNetwork";
 import toast, { Toaster } from "react-hot-toast";
+import { API_BASE_URL } from "../../services/api";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const ContactForm = () => {
       console.log('4. Submitting form data:', formData);
 
       console.log('5. About to call fetch...');
-      const response = await fetch("http://localhost:5000/api/contact/submit", {
+      const response = await fetch(`${API_BASE_URL}/contact/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

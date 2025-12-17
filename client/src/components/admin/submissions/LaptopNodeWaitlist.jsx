@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from "../../../services/api";
 
 const LaptopNodeWaitlist = () => {
   const [entries, setEntries] = useState([]);
@@ -19,7 +20,7 @@ const LaptopNodeWaitlist = () => {
       setLoading(true);
       const statusParam = filter !== 'all' ? `&status=${filter}` : '';
       const response = await fetch(
-        `http://localhost:5000/api/waitlist?page=${currentPage}&limit=10${statusParam}`
+        `${API_BASE_URL}/waitlist?page=${currentPage}&limit=10${statusParam}`
       );
       const data = await response.json();
 
@@ -50,7 +51,7 @@ const LaptopNodeWaitlist = () => {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/waitlist/${id}/status`, {
+      const response = await fetch(`${API_BASE_URL}/waitlist/${id}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
@@ -69,7 +70,7 @@ const LaptopNodeWaitlist = () => {
     if (!window.confirm('Are you sure you want to delete this entry?')) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/waitlist/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/waitlist/${id}`, {
         method: 'DELETE',
       });
 
