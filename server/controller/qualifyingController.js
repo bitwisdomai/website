@@ -1,5 +1,5 @@
 import QualifyingApplication from '../models/QualifyingApplication.js';
-import { sendQualifyingApplicationEmail } from '../utils/emailService.js';
+import { sendQualifyingApplicationEmail, sendQualifyingConfirmationEmail } from '../utils/emailService.js';
 import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -98,8 +98,8 @@ export const createQualifyingApplication = async (req, res) => {
 
     await application.save();
 
-    // Send email notification to owner (fire and forget - don't wait for it)
-    sendQualifyingApplicationEmail({
+    // Send email notifications (fire and forget - don't wait for them)
+    const applicationData = {
       businessName,
       businessAddress,
       phoneNumber,
@@ -113,10 +113,20 @@ export const createQualifyingApplication = async (req, res) => {
       corporateStructure,
       sourceOfFunds,
       intendedUse
-    }).then(() => {
-      console.log('✅ Qualifying application email sent successfully');
+    };
+
+    // Send notification to owner
+    sendQualifyingApplicationEmail(applicationData).then(() => {
+      console.log('✅ Owner notification email sent successfully');
     }).catch((emailError) => {
-      console.error('❌ Failed to send qualifying application email:', emailError.message);
+      console.error('❌ Failed to send owner notification email:', emailError.message);
+    });
+
+    // Send confirmation to user
+    sendQualifyingConfirmationEmail(applicationData).then(() => {
+      console.log('✅ User confirmation email sent successfully');
+    }).catch((emailError) => {
+      console.error('❌ Failed to send user confirmation email:', emailError.message);
     });
 
     // Respond immediately to user

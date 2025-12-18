@@ -1,5 +1,5 @@
 import Waitlist from '../models/Waitlist.js';
-import { sendWaitlistEmail } from '../utils/emailService.js';
+import { sendWaitlistEmail, sendWaitlistConfirmationEmail } from '../utils/emailService.js';
 
 // Add user to waitlist
 export const addToWaitlist = async (req, res) => {
@@ -33,15 +33,25 @@ export const addToWaitlist = async (req, res) => {
 
     await waitlistEntry.save();
 
-    // Send email notification to owner (fire and forget)
-    sendWaitlistEmail({
+    // Send email notifications (fire and forget)
+    const waitlistData = {
       name,
       email,
       waitlistType
-    }).then(() => {
-      console.log('✅ Waitlist email sent successfully');
+    };
+
+    // Send notification to owner
+    sendWaitlistEmail(waitlistData).then(() => {
+      console.log('✅ Owner notification email sent successfully');
     }).catch((emailError) => {
-      console.error('❌ Failed to send waitlist email:', emailError.message);
+      console.error('❌ Failed to send owner notification email:', emailError.message);
+    });
+
+    // Send confirmation to user
+    sendWaitlistConfirmationEmail(waitlistData).then(() => {
+      console.log('✅ User confirmation email sent successfully');
+    }).catch((emailError) => {
+      console.error('❌ Failed to send user confirmation email:', emailError.message);
     });
 
     res.status(201).json({

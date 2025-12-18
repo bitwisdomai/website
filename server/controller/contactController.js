@@ -1,5 +1,5 @@
 import Contact from '../models/Contact.js';
-import { sendContactFormEmail } from '../utils/emailService.js';
+import { sendContactFormEmail, sendContactConfirmationEmail } from '../utils/emailService.js';
 
 // Create a new contact submission
 export const createContact = async (req, res) => {
@@ -33,8 +33,10 @@ export const createContact = async (req, res) => {
     await contact.save();
     console.log('✅ Saved to database successfully');
 
-    // Send email notification to owner (fire and forget - don't wait for it)
+    // Send email notifications (fire and forget - don't wait for them)
     console.log('📨 Triggering email send (background)...');
+
+    // Send notification to owner
     sendContactFormEmail({
       name,
       email,
@@ -42,9 +44,22 @@ export const createContact = async (req, res) => {
       subject,
       message
     }).then(() => {
-      console.log('✅ Email sent successfully');
+      console.log('✅ Owner notification email sent successfully');
     }).catch((emailError) => {
-      console.error('❌ Failed to send email notification:', emailError.message);
+      console.error('❌ Failed to send owner notification email:', emailError.message);
+    });
+
+    // Send confirmation to user
+    sendContactConfirmationEmail({
+      name,
+      email,
+      organization,
+      subject,
+      message
+    }).then(() => {
+      console.log('✅ User confirmation email sent successfully');
+    }).catch((emailError) => {
+      console.error('❌ Failed to send user confirmation email:', emailError.message);
     });
 
     // Respond immediately to user
