@@ -27,9 +27,13 @@ import SubmissionsPage from "./pages/admin/SubmissionsPage";
 import BlogListPage from "./pages/admin/BlogListPage";
 import BlogEditorPage from "./pages/admin/BlogEditorPage";
 
+// Chatbot import
+import Chatbot from "./components/chatbot/Chatbot";
+
 function App() {
   return (
     <Router>
+      <Chatbot />
       <Routes>
         {/* Public Routes */}
           <Route path="/" element={<HomePage />} />

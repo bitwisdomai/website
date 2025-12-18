@@ -397,30 +397,30 @@ const ProfitCalculator = () => {
       />
 
       {/* Content Wrapper */}
-      <div className="relative z-10 max-w-[1600px] mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-10 pt-12 sm:pt-16 md:pt-20 pb-12 sm:pb-14 md:pb-16">
+      <div className="relative z-10 max-w-[1600px] mx-auto w-full px-4 sm:px-6 md:px-8 lg:px-10 pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-8 sm:pb-12 md:pb-14 lg:pb-16">
         {/* Heading */}
-        <div className="mb-8 text-left max-w-5xl">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-wide">
+        <div className="mb-6 sm:mb-8 text-left max-w-5xl">
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold leading-tight tracking-wide">
             <span className="bg-gradient-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
               Total Profit Estimator — Running a Crypto Node on the BitWisdom AI
               Network
             </span>
           </h1>
-          <p className="text-gray-300 mt-2 sm:mt-3 text-xs sm:text-sm">
+          <p className="text-gray-300 mt-2 sm:mt-3 text-xs sm:text-sm md:text-base">
             Enter the Total Amount of Transactions for all Merchants on your
             Crypto Node
           </p>
         </div>
 
         {/* Calculator Box */}
-        <div className="bg-transparent text-white border border-[#00f0ff] rounded-lg shadow-lg p-8 sm:p-10 md:p-12 grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-12 md:gap-14">
+        <div className="bg-transparent text-white border border-[#00f0ff] rounded-lg shadow-lg p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14">
           {/* LEFT SECTION */}
           <div>
-            <div className="mb-12">
-              <label className="block text-white text-base font-semibold mb-3">
+            <div className="mb-6 sm:mb-8 md:mb-12">
+              <label className="block text-white text-sm sm:text-base font-semibold mb-2 sm:mb-3">
                 Total Monthly Transactions ({currency})
                 {isDetecting && (
-                  <span className="text-sky-500 text-sm font-normal ml-2">
+                  <span className="text-sky-500 text-xs sm:text-sm font-normal ml-2">
                     (Detecting currency...)
                   </span>
                 )}
@@ -429,20 +429,20 @@ const ProfitCalculator = () => {
                 type="number"
                 value={totalAmount}
                 onChange={(e) => setTotalAmount(e.target.value)}
-                className="w-full border border-[#00f0ff] rounded-md px-5 py-4 text-white focus:outline-none focus:ring-2 focus:ring-sky-400 text-lg"
+                className="w-full bg-[#1a1a1a] border border-[#00f0ff] rounded-md px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 text-white focus:outline-none focus:ring-2 focus:ring-sky-400 text-base sm:text-lg"
               />
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 mt-12">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-6 sm:mt-8 md:mt-12">
               <button
                 onClick={resetToDefaults}
-                className="border border-[#00f0ff] text-white font-semibold px-6 py-3 rounded-md hover:bg-[#00f0ff] text-black transition"
+                className="w-full sm:w-auto border border-[#00f0ff] text-white font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-md hover:bg-[#00f0ff] hover:text-black transition text-sm sm:text-base"
               >
                 Reset to Defaults
               </button>
             </div>
 
-            <p className="text-white text-sm leading-relaxed mt-12 max-w-2xl">
+            <p className="text-white text-xs sm:text-sm leading-relaxed mt-6 sm:mt-8 md:mt-12 max-w-2xl">
               *This estimate does not include equipment, electricity, or other
               overhead costs. Profit is based on BitWisdom's gross model minus
               tiered operational fees.
@@ -450,26 +450,26 @@ const ProfitCalculator = () => {
           </div>
 
           {/* RIGHT SECTION */}
-          <div className="bg-[#00f0ff] rounded-md p-8 border border-[#00f0ff] shadow-inner self-start">
-            <div className="mb-10">
-              <p className="text-black text-base font-medium mb-2">
+          <div className="bg-[#00f0ff] rounded-md p-4 sm:p-6 md:p-8 border border-[#00f0ff] shadow-inner self-start lg:sticky lg:top-4">
+            <div className="mb-6 sm:mb-8 md:mb-10">
+              <p className="text-black text-sm sm:text-base font-medium mb-1 sm:mb-2">
                 Estimated Monthly Profit
               </p>
-              <p className="text-black text-5xl font-bold">
+              <p className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold break-words">
                 {formatCurrency(monthlyProfit)}
               </p>
             </div>
 
-            <div className="border-t border-black my-8"></div>
+            <div className="border-t border-black my-4 sm:my-6 md:my-8"></div>
 
             <div>
-              <p className="text-black text-base font-medium mb-2">
+              <p className="text-black text-sm sm:text-base font-medium mb-1 sm:mb-2">
                 Estimated Annual Profit
               </p>
-              <p className="text-black text-4xl font-bold">
+              <p className="text-black text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold break-words">
                 {formatCurrency(annualProfit)}
               </p>
-              <p className="text-black text-xs mt-3">
+              <p className="text-black text-xs mt-2 sm:mt-3">
                 Auto-detected: {CURRENCIES[currency].name}
               </p>
             </div>

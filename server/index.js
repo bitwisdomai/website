@@ -48,6 +48,7 @@ import qualifyingRoutes from './routes/qualifying.js';
 import waitlistRoutes from './routes/waitlist.js';
 import contactRoutes from './routes/contact.js';
 import blogRoutes from './routes/blog.js';
+import chatbotRoutes from './routes/chatbot.js';
 
 // Basic route
 app.get('/', (req, res) => {
@@ -63,7 +64,8 @@ app.get('/', (req, res) => {
       qualifying: '/api/qualifying',
       waitlist: '/api/waitlist',
       contact: '/api/contact',
-      blog: '/api/blog'
+      blog: '/api/blog',
+      chatbot: '/api/chatbot'
     }
   });
 });
@@ -77,6 +79,7 @@ app.use('/api/qualifying', qualifyingRoutes);
 app.use('/api/waitlist', waitlistRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/blog', blogRoutes);
+app.use('/api/chatbot', chatbotRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
