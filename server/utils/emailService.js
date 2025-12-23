@@ -293,7 +293,7 @@ export const sendContactConfirmationEmail = async (contactData) => {
     const mailOptions = {
       from: `"BitWisdom" <${process.env.EMAIL_USER}>`,
       to: contactData.email,
-      subject: 'Thank you for contacting BitWisdom',
+      subject: "Thank you for contacting BitWisdom",
       html: `
         <!DOCTYPE html>
         <html>
@@ -318,13 +318,17 @@ export const sendContactConfirmationEmail = async (contactData) => {
               <p>Thank you for reaching out to BitWisdom. We have received your message and our team will review it shortly.</p>
               <div class="message">
                 <h3 style="margin-top: 0; color: #0080ff;">Your Message:</h3>
-                ${contactData.subject ? `<p><strong>Subject:</strong> ${contactData.subject}</p>` : ''}
+                ${
+                  contactData.subject
+                    ? `<p><strong>Subject:</strong> ${contactData.subject}</p>`
+                    : ""
+                }
                 <p>${contactData.message}</p>
               </div>
               <p>We typically respond within 24-48 hours. If your inquiry is urgent, please feel free to reach out to us directly.</p>
               <div class="footer">
                 <p><strong>BitWisdom Team</strong></p>
-                <p>Email: ${process.env.EMAIL_USER}</p>
+                <p>Email: info@bitwisdom.ai</p>
               </div>
             </div>
           </div>
@@ -350,7 +354,7 @@ export const sendQualifyingConfirmationEmail = async (applicationData) => {
     const mailOptions = {
       from: `"BitWisdom" <${process.env.EMAIL_USER}>`,
       to: applicationData.emailAddress,
-      subject: 'Your BitWisdom Qualifying Application Has Been Received',
+      subject: "Your BitWisdom Qualifying Application Has Been Received",
       html: `
         <!DOCTYPE html>
         <html>
@@ -376,8 +380,12 @@ export const sendQualifyingConfirmationEmail = async (applicationData) => {
               <p>Thank you for submitting your Qualifying Customer Application to BitWisdom. We have successfully received your application.</p>
               <div class="info-box">
                 <h3 style="margin-top: 0; color: #0080ff;">Application Details:</h3>
-                <p><strong>Business Name:</strong> ${applicationData.businessName}</p>
-                <p><strong>Business Type:</strong> ${applicationData.businessType}</p>
+                <p><strong>Business Name:</strong> ${
+                  applicationData.businessName
+                }</p>
+                <p><strong>Business Type:</strong> ${
+                  applicationData.businessType
+                }</p>
                 <p><strong>Submission Date:</strong> ${new Date().toLocaleDateString()}</p>
               </div>
               <div class="next-steps">
@@ -392,7 +400,7 @@ export const sendQualifyingConfirmationEmail = async (applicationData) => {
               <p>If you have any questions about your application, please don't hesitate to contact us.</p>
               <div class="footer">
                 <p><strong>BitWisdom Compliance Team</strong></p>
-                <p>Email: ${process.env.EMAIL_USER}</p>
+                <p>Email: info@bitwisdom.ai</p>
               </div>
             </div>
           </div>
@@ -464,7 +472,7 @@ export const sendWaitlistConfirmationEmail = async (waitlistData) => {
               <p>In the meantime, feel free to explore our website and learn more about our vision for decentralized AI infrastructure.</p>
               <div class="footer">
                 <p><strong>BitWisdom Team</strong></p>
-                <p>Email: ${process.env.EMAIL_USER}</p>
+                <p>Email: info@bitwisdom.ai</p>
                 <p style="margin-top: 15px; font-size: 12px; color: #999;">You're receiving this email because you signed up for the BitWisdom ${waitlistTypeDisplay} waitlist.</p>
               </div>
             </div>
