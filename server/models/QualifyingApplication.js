@@ -74,6 +74,13 @@ const qualifyingApplicationSchema = new mongoose.Schema({
     trim: true
   },
 
+  // Submission ID (unique folder identifier for file uploads)
+  submissionId: {
+    type: String,
+    required: true,
+    unique: true
+  },
+
   // File Uploads (store file paths)
   photoId: {
     type: String,

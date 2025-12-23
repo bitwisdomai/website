@@ -4,6 +4,7 @@ import multer from 'multer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import crypto from 'crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,8 +12,13 @@ const __dirname = path.dirname(__filename);
 // Configure multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // Store uploads in project root with organized structure
-    const uploadDir = path.join(__dirname, '../../uploads/qualifying/documents');
+    // Generate unique submission ID if not already set
+    if (!req.submissionId) {
+      req.submissionId = crypto.randomBytes(16).toString('hex');
+    }
+
+    // Store in server/uploads/forms/submissions/<submissionId> (private, admin-only)
+    const uploadDir = path.join(__dirname, '../uploads/forms/submissions', req.submissionId);
 
     // Create directory if it doesn't exist
     if (!fs.existsSync(uploadDir)) {
@@ -22,8 +28,17 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, 'qualifying-' + file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+    // Use original filename with sanitization
+    const sanitizedName = file.originalname.replace(/[^a-zA-Z0-9.-]/g, '_');
+    const filename = file.fieldname + '-' + sanitizedName;
+
+    // Store URL paths for each file (without /api prefix - frontend adds it)
+    if (!req.fileUrlPaths) {
+      req.fileUrlPaths = {};
+    }
+    req.fileUrlPaths[file.fieldname] = `/uploads/forms/submissions/${req.submissionId}/${filename}`;
+
+    cb(null, filename);
   }
 });
 
@@ -42,7 +57,8 @@ const fileFilter = (req, file, cb) => {
 
 export const upload = multer({
   storage: storage,
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+  limits: {
+    fileSize: 100 * 1024 * 1024 }, // 100MB limit
   fileFilter: fileFilter
 });
 
@@ -74,8 +90,9 @@ export const createQualifyingApplication = async (req, res) => {
       });
     }
 
-    // Create new application
+    // Create new application with submissionId from multer
     const application = new QualifyingApplication({
+      submissionId: req.submissionId,
       businessName,
       businessAddress,
       phoneNumber,
@@ -89,10 +106,10 @@ export const createQualifyingApplication = async (req, res) => {
       corporateStructure,
       sourceOfFunds,
       intendedUse,
-      photoId: req.files.photoId?.[0]?.path || '',
-      articlesOfIncorporation: req.files.articlesOfIncorporation?.[0]?.path || '',
-      certificateOfIncorporation: req.files.certificateOfIncorporation?.[0]?.path || '',
-      proofOfAddress: req.files.proofOfAddress?.[0]?.path || '',
+      photoId: req.fileUrlPaths?.photoId || '',
+      articlesOfIncorporation: req.fileUrlPaths?.articlesOfIncorporation || '',
+      certificateOfIncorporation: req.fileUrlPaths?.certificateOfIncorporation || '',
+      proofOfAddress: req.fileUrlPaths?.proofOfAddress || '',
       acceptedTerms: acceptedTerms === 'true' || acceptedTerms === true
     });
 
@@ -248,19 +265,13 @@ export const deleteQualifyingApplication = async (req, res) => {
       });
     }
 
-    // Delete associated files
-    const filePaths = [
-      application.photoId,
-      application.articlesOfIncorporation,
-      application.certificateOfIncorporation,
-      application.proofOfAddress
-    ];
+    // Delete entire submission folder
+    const submissionDir = path.join(__dirname, '../uploads/forms/submissions', application.submissionId);
 
-    filePaths.forEach(filePath => {
-      if (filePath && fs.existsSync(filePath)) {
-        fs.unlinkSync(filePath);
-      }
-    });
+    if (fs.existsSync(submissionDir)) {
+      // Delete all files in the directory
+      fs.rmSync(submissionDir, { recursive: true, force: true });
+    }
 
     await QualifyingApplication.findByIdAndDelete(req.params.id);
 

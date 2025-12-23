@@ -26,12 +26,12 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve uploads folder as static files
+// Serve ONLY blog uploads as public static files
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use('/api/uploads/blogs', express.static(path.join(__dirname, 'uploads/blogs')));
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -49,6 +49,51 @@ import waitlistRoutes from './routes/waitlist.js';
 import contactRoutes from './routes/contact.js';
 import blogRoutes from './routes/blog.js';
 import chatbotRoutes from './routes/chatbot.js';
+
+// Import middleware for secure file access
+import { protect, adminOnly } from './middleware/auth.js';
+import fs from 'fs';
+
+// Secure route for admin-only access to form submission files
+app.get('/api/uploads/forms/submissions/:submissionId/:filename', protect, adminOnly, (req, res) => {
+  try {
+    const { submissionId, filename } = req.params;
+
+    // Sanitize inputs to prevent directory traversal
+    const sanitizedSubmissionId = submissionId.replace(/[^a-zA-Z0-9-]/g, '');
+    const sanitizedFilename = filename.replace(/[^a-zA-Z0-9._-]/g, '');
+
+    // Construct file path
+    const filePath = path.join(__dirname, 'uploads/forms/submissions', sanitizedSubmissionId, sanitizedFilename);
+
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({
+        success: false,
+        message: 'File not found'
+      });
+    }
+
+    // Ensure the resolved path is within the allowed directory (prevent directory traversal)
+    const uploadsDir = path.join(__dirname, 'uploads/forms/submissions');
+    if (!filePath.startsWith(uploadsDir)) {
+      return res.status(403).json({
+        success: false,
+        message: 'Access denied'
+      });
+    }
+
+    // Send file
+    res.sendFile(filePath);
+  } catch (error) {
+    console.error('Error serving form file:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to retrieve file',
+      error: error.message
+    });
+  }
+});
 
 // Basic route
 app.get('/', (req, res) => {

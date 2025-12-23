@@ -321,6 +321,58 @@ const QualifyingSubmissions = () => {
                 </div>
               </div>
 
+              {/* Documents Section */}
+              <div className="border-t pt-4">
+                <h3 className="font-semibold text-gray-700 text-sm sm:text-base mb-3">Uploaded Documents</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    { label: 'Photo ID', path: selectedSubmission.photoId },
+                    { label: 'Articles of Incorporation', path: selectedSubmission.articlesOfIncorporation },
+                    { label: 'Certificate of Incorporation', path: selectedSubmission.certificateOfIncorporation },
+                    { label: 'Proof of Address', path: selectedSubmission.proofOfAddress }
+                  ].map((doc, index) => (
+                    <div key={index} className="border border-gray-200 rounded-lg p-3">
+                      <p className="text-xs font-medium text-gray-600 mb-2">{doc.label}</p>
+                      {doc.path ? (
+                        <a
+                          href={`${API_BASE_URL}${doc.path}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 hover:underline"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            // Fetch with auth token
+                            const token = localStorage.getItem('token');
+                            fetch(`${API_BASE_URL}${doc.path}`, {
+                              headers: {
+                                'Authorization': `Bearer ${token}`
+                              }
+                            })
+                              .then(response => response.blob())
+                              .then(blob => {
+                                const url = window.URL.createObjectURL(blob);
+                                window.open(url, '_blank');
+                              })
+                              .catch(err => {
+                                console.error('Error fetching file:', err);
+                                alert('Failed to load file');
+                              });
+                          }}
+                        >
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                          View Document
+                        </a>
+                      ) : (
+                        <span className="text-sm text-gray-400">Not uploaded</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <div className="text-xs text-gray-500 border-t pt-3">
                 <p>Submitted: {formatDate(selectedSubmission.createdAt)}</p>
                 <p>Last Updated: {formatDate(selectedSubmission.updatedAt)}</p>

@@ -11,8 +11,8 @@ const __dirname = path.dirname(__filename);
 // Configure multer for blog image uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // Store in project root uploads folder with organized structure
-    const uploadDir = path.join(__dirname, '../../uploads/blog/images');
+    // Store in server/uploads/blogs/images (publicly accessible)
+    const uploadDir = path.join(__dirname, '../uploads/blogs/images');
 
     // Create directory if it doesn't exist
     if (!fs.existsSync(uploadDir)) {
@@ -23,7 +23,12 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, 'blog-' + uniqueSuffix + path.extname(file.originalname));
+    const filename = 'blog-' + uniqueSuffix + path.extname(file.originalname);
+
+    // Store the URL path in req for later use (without /api prefix - frontend adds it)
+    req.fileUrlPath = `/uploads/blogs/images/${filename}`;
+
+    cb(null, filename);
   }
 });
 
@@ -42,7 +47,7 @@ const fileFilter = (req, file, cb) => {
 
 export const upload = multer({
   storage: storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit for blog images
+  limits: { fileSize: 15 * 1024 * 1024 }, // 15MB limit for blog images
   fileFilter: fileFilter
 });
 
@@ -68,7 +73,7 @@ export const createBlog = asyncHandler(async (req, res) => {
   const blog = await Blog.create({
     title,
     author,
-    featuredImage: req.file ? req.file.path : '',
+    featuredImage: req.file ? req.fileUrlPath : '',
     excerpt,
     content,
     tags: parsedTags || [],
@@ -203,11 +208,14 @@ export const updateBlog = asyncHandler(async (req, res) => {
 
   // Update featured image if new one is uploaded
   if (req.file) {
-    // Delete old image if it exists
-    if (blog.featuredImage && fs.existsSync(blog.featuredImage)) {
-      fs.unlinkSync(blog.featuredImage);
+    // Delete old image if it exists (convert URL path to filesystem path)
+    if (blog.featuredImage) {
+      const oldFilePath = path.join(__dirname, '..', blog.featuredImage.replace(/^\//, ''));
+      if (fs.existsSync(oldFilePath)) {
+        fs.unlinkSync(oldFilePath);
+      }
     }
-    blog.featuredImage = req.file.path;
+    blog.featuredImage = req.fileUrlPath;
   }
 
   await blog.save();
@@ -225,9 +233,12 @@ export const deleteBlog = asyncHandler(async (req, res) => {
     return errorResponse(res, 404, 'Blog post not found');
   }
 
-  // Delete featured image if it exists
-  if (blog.featuredImage && fs.existsSync(blog.featuredImage)) {
-    fs.unlinkSync(blog.featuredImage);
+  // Delete featured image if it exists (convert URL path to filesystem path)
+  if (blog.featuredImage) {
+    const filePath = path.join(__dirname, '..', blog.featuredImage.replace(/^\//, ''));
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
   }
 
   await Blog.findByIdAndDelete(req.params.id);
@@ -277,7 +288,7 @@ export const uploadBlogImage = asyncHandler(async (req, res) => {
   }
 
   return successResponse(res, 200, 'Image uploaded successfully', {
-    imageUrl: req.file.path,
+    imageUrl: req.fileUrlPath,
     filename: req.file.filename
   });
 });

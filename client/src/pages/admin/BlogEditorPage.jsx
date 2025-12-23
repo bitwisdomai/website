@@ -64,7 +64,8 @@ const BlogEditorPage = () => {
           }
         });
         if (blog.featuredImage) {
-          setPreviewImage(`${window.location.protocol}//${window.location.host}/${blog.featuredImage}`);
+          // Prepend API_BASE_URL to get full image URL
+          setPreviewImage(`${API_BASE_URL}${blog.featuredImage}`);
         }
       }
     } catch (error) {

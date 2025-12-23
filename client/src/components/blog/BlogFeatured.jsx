@@ -66,9 +66,8 @@ const BlogFeatured = () => {
   }
 
   const currentPost = featuredPosts[currentSlide];
-  const imageUrl = currentPost.featuredImage
-    ? `${window.location.protocol}//${window.location.host}/${currentPost.featuredImage}`
-    : null;
+  // Prepend API_BASE_URL to get full image URL
+  const imageUrl = currentPost.featuredImage ? `${API_BASE_URL}${currentPost.featuredImage}` : null;
 
   return (
     <section className="relative bg-black text-white py-8 sm:py-12 md:py-16 lg:py-20 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden">

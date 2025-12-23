@@ -87,9 +87,8 @@ const BlogGrid = () => {
             {/* Blog Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {filteredPosts.map((post, index) => {
-                const imageUrl = post.featuredImage
-                  ? `${window.location.protocol}//${window.location.host}/${post.featuredImage}`
-                  : null;
+                // Prepend API_BASE_URL to get full image URL
+                const imageUrl = post.featuredImage ? `${API_BASE_URL}${post.featuredImage}` : null;
 
                 return (
                   <div

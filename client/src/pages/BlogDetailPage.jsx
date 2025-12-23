@@ -74,9 +74,8 @@ const BlogDetailPage = () => {
     );
   }
 
-  const imageUrl = blog.featuredImage
-    ? `${window.location.protocol}//${window.location.host}/${blog.featuredImage}`
-    : null;
+  // Prepend API_BASE_URL to get full image URL
+  const imageUrl = blog.featuredImage ? `${API_BASE_URL}${blog.featuredImage}` : null;
 
   return (
     <div className="min-h-screen bg-black">
