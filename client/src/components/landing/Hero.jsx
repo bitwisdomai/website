@@ -5,7 +5,7 @@ import BLogo from "../../assets/Logo/Blogo.png";
 const Hero = () => {
   const carouselTexts = [
     { text: "Make Profit Running A Crypto Node", highlight: false },
-    { text: "Or Our nodeFON (Patent-Pending)", highlight: false },
+    { text: "Or Our nodeFON™ (Patent-Pending)", highlight: false },
     { text: "Or Our Laptop Crypto Node", highlight: false },
     { text: "Onboard Merchants You're Already Serving", highlight: false },
     {

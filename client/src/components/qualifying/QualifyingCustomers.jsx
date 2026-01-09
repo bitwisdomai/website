@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaBuilding, FaUsers, FaUniversity, FaChartLine, FaLightbulb, FaLandmark, FaHandsHelping, FaStore, FaBriefcase } from "react-icons/fa";
+import { FaBuilding, FaUsers, FaUniversity, FaChartLine, FaLightbulb, FaLandmark, FaHandsHelping, FaStore, FaBriefcase, FaCalendarAlt, FaTh } from "react-icons/fa";
 
 const QualifyingCustomers = () => {
   const [visibleItems, setVisibleItems] = useState([]);
@@ -59,6 +59,18 @@ const QualifyingCustomers = () => {
       title: "Corporate Offices/Store Support Centers",
       description: "Run A Node To Enable Crypto Acceptance At All Of Your Stores",
       icon: FaBriefcase,
+    },
+    {
+      number: "10",
+      title: "Crypto Events & Blockchain Conferences",
+      description: "Show the world Bitcoin's utility with vendor/attendee transactions",
+      icon: FaCalendarAlt,
+    },
+    {
+      number: "11",
+      title: "Trade Shows & Expositions",
+      description: "Provide your vendors & exhibitors an alternative payment method",
+      icon: FaTh,
     },
   ];
 

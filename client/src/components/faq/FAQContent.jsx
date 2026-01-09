@@ -81,7 +81,7 @@ const FAQContent = () => {
       question:
         "Does BW perform KYC on Qualifying BW Customers and who's responsible for KYC with onboarded merchants?",
       answer:
-        "We perform KYC on our Qualifying BW Customers. Information can include verifying the identity of our customers, understanding the nature of their business relationships, and conducting ongoing monitoring of transactions. This also often involves collecting documents such as identification, proof of address, and information about beneficial owners for compliance with anti-money-laundering regulations. With our system it is your responsibility to perform KYC on your onboarded merchants.",
+        "We perform KYC on our Qualifying BW Customers. Information can include verifying the identity of our customers and understanding the nature of their business relationships. This also often involves collecting documents such as identification, proof of address, and information about beneficial owners for compliance with anti-money-laundering regulations. With our system, it is your responsibility to perform KYC, and to conduct ongoing monitoring of transactions on your on-boarded merchants.",
       category: "Compliance",
     },
     {
@@ -169,7 +169,17 @@ const FAQContent = () => {
                     <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed mt-3 sm:mt-4">
                       {faq.hasJSX ? (
                         <>
-                          nodeFÔN<sup className="text-[0.6em]">TM</sup> (patent-pending) is our mobile phone crypto node that facilitates transactions similarly to our powerful-spec'd business-class notebook node and both run our customized software. You can run your node of choice ranging in compute power from a Raspberry Pi to an obscenely powerful workstation/server (rack-mount or tower) or cloud-based (VPS not recommended due to service dependency), however our two offerings are power-sipping options. All of the above support our AI-powered tech (patent-pending).
+                          nodeFÔN<sup className="text-[0.6em]">TM</sup>{" "}
+                          (patent-pending) is our mobile phone crypto node that
+                          facilitates transactions similarly to our
+                          powerful-spec'd business-class notebook node and both
+                          run our customized software. You can run your node of
+                          choice ranging in compute power from a Raspberry Pi to
+                          an obscenely powerful workstation/server (rack-mount
+                          or tower) or cloud-based (VPS not recommended due to
+                          service dependency), however our two offerings are
+                          power-sipping options. All of the above support our
+                          AI-powered tech (patent-pending).
                         </>
                       ) : (
                         faq.answer

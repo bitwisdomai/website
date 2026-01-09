@@ -9,6 +9,7 @@
     "seed": "node utils/seedAdmin.js",
     "seed:seo-demo": "node scripts/seedSeoVariants.js",
     "seed:faqs": "node scripts/seedFAQs.js",
+    "sync:faqs": "node scripts/syncFAQs.js",
     "scrape:website": "node scripts/scrapeWebsite.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

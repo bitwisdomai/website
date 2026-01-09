@@ -161,12 +161,12 @@ const MobileNodeSection = () => {
           {/* Right: Content */}
           <div className="order-1 md:order-2 space-y-6 text-center md:text-left">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
-              <div className="flex items-center gap-2 sm:gap-3 justify-center md:justify-start flex-wrap">
+              <div className="flex items-center gap-1 sm:gap-1.5 justify-center md:justify-start flex-wrap">
                 <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                   <img
                     src={nodeFONLogo}
-                    alt="nodeFON Logo"
-                    className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain md:-ml-6"
+                    alt="nodeFON™ Logo"
+                    className="h-28 sm:h-32 md:h-48 lg:h-54 xl:h-64 w-auto object-contain sm:-ml-4 md:-ml-6 mt-4"
                   />
                   <span className="bg-linear-to-b from-[#00f0ff] to-white bg-clip-text text-transparent">
                     : World's First

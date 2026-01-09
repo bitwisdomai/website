@@ -123,7 +123,7 @@ const FeaturesSection = () => {
       number: "01",
       title: "Deploy Anywhere",
       description: [
-        "We will help you launch a crypto node in the cloud, or your own locally-hosted hardware, including our laptop crypto node or our nodeFON (patent-pending), by using BitWisdom’s patent-pending Clearnet security connection procedures and no commitment, ever!",
+        "We will help you launch a crypto node in the cloud, or your own locally-hosted hardware, including our laptop crypto node or our nodeFON™ (patent-pending), by using BitWisdom's patent-pending Clearnet security connection procedures and no commitment, ever!",
         "** With the exception of lifetime license to only one business in USA and only one business in any other country, limited-time offer.",
       ],
     },
